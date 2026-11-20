@@ -200,12 +200,12 @@
     overflow-x: hidden;
   }
   .artist-profile-page .wrap {
-    padding: 0 12px;
+    padding: 0 18px;
   }
 
   /* Top Bar */
   .artist-profile-page .top {
-    padding: 12px 0 10px;
+    padding: 14px 2px 12px;
     align-items: center;
   }
   .artist-profile-page .brand {
@@ -215,30 +215,30 @@
     height: 22px;
   }
   .artist-profile-page .brand-title {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .08em;
   }
   .artist-profile-page .demo {
     font-size: 11px;
-    padding: 2px 8px;
+    padding: 3px 10px;
     background: color-mix(in srgb, var(--terra) 12%, transparent);
     border-radius: 99px;
   }
 
-  /* Main Card */
+  /* Main Card with comfortable edge padding on phone */
   .artist-profile-page .artist-card {
-    margin: 12px 0 32px;
-    padding: 18px 14px 16px;
+    margin: 16px 0 36px;
+    padding: 28px 22px 24px;
     border: 3px solid color-mix(in srgb, var(--paper) 45%, transparent);
-    border-radius: 20px;
+    border-radius: 24px;
     box-shadow: 0 16px 36px -12px rgba(42,26,18,.3), 0 0 0 1px rgba(168,131,47,.25);
   }
 
   .artist-profile-page .cover {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 20px;
     min-height: 0;
-    padding-bottom: 18px;
+    padding-bottom: 20px;
   }
 
   /* Centered Portrait Photo Frame */
@@ -504,19 +504,20 @@
   }
 }
 
-/* Small Screens */
+/* Small Screens (Smartphones) */
 @media (max-width: 420px) {
   .artist-profile-page .frame {
-    max-width: 180px;
+    max-width: 185px;
   }
   .artist-profile-page h1 {
     font-size: 26px;
   }
   .artist-profile-page .wrap {
-    padding: 0 8px;
+    padding: 0 16px;
   }
   .artist-profile-page .artist-card {
-    padding: 14px 10px 14px;
+    padding: 24px 18px 22px;
+    border-radius: 20px;
   }
 }
 

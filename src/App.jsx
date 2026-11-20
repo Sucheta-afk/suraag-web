@@ -42,7 +42,9 @@ function MainLayout() {
 
   return (
     <div className={`min-h-screen bg-[#F8EFDF] text-[#422315] selection:bg-[#D99A42] selection:text-[#422315] flex ${
-      activeTab === 'profile' ? '' : currentTrack ? 'pb-24' : 'pb-10'
+      activeTab === 'profile'
+        ? currentTrack ? 'pb-28' : 'pb-16 lg:pb-8'
+        : currentTrack ? 'pb-24' : 'pb-10'
     }`}>
       
       {/* Toast Notification Alert */}
@@ -75,7 +77,7 @@ function MainLayout() {
           className={`flex-1 w-full mx-auto ${
             activeTab === 'profile'
               ? 'max-w-none px-0'
-              : 'max-w-[1320px] px-3 sm:px-6'
+              : 'max-w-[1320px] px-4 sm:px-6'
           }`}
         >
           {activeTab === 'feed' ? (
