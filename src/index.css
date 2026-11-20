@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color-scheme: light;
+  --brand-espresso: #422315;
+  --brand-gold: #D99A42;
+  --brand-ivory: #F8EFDF;
+}
+
+/* Custom warm scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8EFDF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D99A42;
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(217, 154, 66, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfa482;
+}
+
+/* Soft card shadow */
+.card-shadow {
+  box-shadow: 0 2px 14px -3px rgba(60, 40, 20, 0.05), 0 1px 4px -1px rgba(60, 40, 20, 0.03);
+}
+
+.banner-shadow {
+  box-shadow: 0 10px 25px -5px rgba(43, 22, 56, 0.25);
+}
+
+[class*="text-amber"],
+[class*="text-[#D99A42"] {
+  text-shadow: 0 0 8px rgba(217, 154, 66, 0.22);
+}
+
+[class*="bg-amber"],
+[class*="bg-[#D99A42"] {
+  box-shadow: 0 4px 12px rgba(217, 154, 66, 0.16);
+}
+
+@media (max-height: 680px) {
+  .sidebar-panel {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .sidebar-panel > div:first-child {
+    gap: 0.75rem;
+  }
+
+  .sidebar-panel nav {
+    gap: 0.125rem;
+  }
+
+  .sidebar-panel nav button {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+
+  .sidebar-artwork {
+    max-height: 34vh;
+  }
+}
