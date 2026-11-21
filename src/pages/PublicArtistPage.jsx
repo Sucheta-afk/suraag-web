@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { artistSlug } from '../utils/artistSlug';
 import './ArtistProfile.css';
 
@@ -17,6 +17,8 @@ export default function PublicArtistPage({ artist }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [tapNotes, setTapNotes] = useState([]);
   const [showFullProfile, setShowFullProfile] = useState(false);
+  const [cardBlobReady, setCardBlobReady] = useState(false);
+  const cardBlobRef = useRef(null);
   const slug = artistSlug(artist);
   const name = artist.stageName || artist.name;
   const url = `${window.location.origin}/${slug}`;
@@ -83,81 +85,251 @@ export default function PublicArtistPage({ artist }) {
     try { await navigator.clipboard.writeText(url); notify('Link copied'); }
     catch { notify('Copy the address from your browser bar'); }
   };
-  const downloadBanner = () => {
-    const link = document.createElement('a');
-    link.href = '/suraag-banner.jpg';
-    link.download = `${slug}-suraag-banner.jpg`;
-    link.click();
-    notify('Banner image downloaded');
-  };
-  const share = async () => {
-    if (navigator.share) {
-      try {
-        const shareData = {
-          title: `${name} | ${artist.primaryRole} — Suraag`,
-          text: statement ? `${name} (${artist.primaryRole}) on Suraag: "${statement}"` : `${name} on Suraag`,
-          url
-        };
-        try {
-          const res = await fetch('/suraag-banner.jpg');
-          const blob = await res.blob();
-          const file = new File([blob], 'suraag-banner.jpg', { type: 'image/jpeg' });
-          if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            shareData.files = [file];
-          }
-        } catch {
-          /* Fall back to sharing URL and text */
-        }
-        await navigator.share(shareData);
-      } catch {
-        /* The visitor closed the share sheet. */
-      }
-    } else setSharing(true);
-  };
-  const downloadCard = () => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 1080;
-    canvas.height = 1350;
-    const context = canvas.getContext('2d');
-    if (!context) return notify('Unable to create the artist card');
-    context.fillStyle = '#f3ead9';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = '#a8832f';
-    context.lineWidth = 2;
-    context.strokeRect(40, 40, 1000, 1270);
-    const save = () => canvas.toBlob(blob => {
-      if (!blob) return notify('Unable to download the artist card');
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `${slug}-suraag-card.png`;
-      link.click();
-      URL.revokeObjectURL(link.href);
-      notify('Card downloaded');
-    });
+  const loadCardImage = (src) => new Promise(resolve => {
+    if (!src) return resolve(null);
     const image = new Image();
+    let settled = false;
+    const finish = value => {
+      if (settled) return;
+      settled = true;
+      resolve(value);
+    };
+    const timeoutId = window.setTimeout(() => finish(null), 8000);
     image.crossOrigin = 'anonymous';
     image.onload = () => {
-      try { context.drawImage(image, 100, 100, 880, 650); } catch { /* Some image hosts block canvas access. */ }
-      save();
+      window.clearTimeout(timeoutId);
+      finish(image);
     };
-    image.onerror = save;
+    image.onerror = () => {
+      window.clearTimeout(timeoutId);
+      finish(null);
+    };
+    image.src = src;
+  });
+
+  const createCardBlob = async () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1600;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+
+    const roundedRect = (x, y, width, height, radius) => {
+      context.beginPath();
+      context.moveTo(x + radius, y);
+      context.arcTo(x + width, y, x + width, y + height, radius);
+      context.arcTo(x + width, y + height, x, y + height, radius);
+      context.arcTo(x, y + height, x, y, radius);
+      context.arcTo(x, y, x + width, y, radius);
+      context.closePath();
+    };
+    const wrapText = (value, font, maxWidth) => {
+      context.font = font;
+      const lines = [];
+      let line = '';
+      for (const word of String(value || '').split(/\s+/).filter(Boolean)) {
+        const candidate = line ? `${line} ${word}` : word;
+        if (line && context.measureText(candidate).width > maxWidth) {
+          lines.push(line);
+          line = word;
+        } else line = candidate;
+      }
+      if (line) lines.push(line);
+      return lines;
+    };
+
+    const rightX = 680;
+    const rightWidth = 850;
+    const pad = 58;
+    const qrSize = 138;
+    const qrGap = 22;
+    const nameFont = '600 82px Georgia, serif';
+    const roleFont = 'italic 42px Georgia, serif';
+    const statementFont = '600 27px Georgia, serif';
+    const nameLines = wrapText(name || 'Suraag Artiste', nameFont, rightWidth);
+    const roleLines = wrapText(artist.primaryRole || 'Suraag Artiste', roleFont, rightWidth);
+    const locationLines = artist.location ? wrapText(artist.location, '23px Arial, sans-serif', rightWidth) : [];
+    const statementLines = statement ? wrapText(statement, statementFont, rightWidth - 30) : [];
+    const specialisations = [...(skills || [])].filter(Boolean).slice(0, 5);
+    context.font = '600 18px Arial, sans-serif';
+    const chipRows = [];
+    for (const label of specialisations) {
+      const width = Math.min(context.measureText(label).width + 34, rightWidth);
+      let row = chipRows[chipRows.length - 1];
+      if (!row || row.width + (row.items.length ? 12 : 0) + width > rightWidth) {
+        row = { items: [], width: 0 };
+        chipRows.push(row);
+      }
+      row.items.push({ label, width });
+      row.width += (row.items.length > 1 ? 12 : 0) + width;
+    }
+
+    let contentBottom = 250 + nameLines.length * 88 + roleLines.length * 52 + locationLines.length * 32 + 26;
+    contentBottom += statementLines.length * 38 + 26;
+    contentBottom += specialisations.length ? 30 + chipRows.length * 48 : 20;
+    canvas.height = Math.max(760, contentBottom + qrSize + pad * 2 + 30, 110 + qrSize + 100);
+
+    context.fillStyle = '#24150f';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeStyle = '#39251b';
+    context.lineWidth = 3;
+    roundedRect(32, 32, canvas.width - 64, canvas.height - 64, 18);
+    context.stroke();
+
+    const portraitX = 88;
+    const portraitY = pad + 70;
+    const portraitWidth = 520;
+    const portraitHeight = Math.min(canvas.height - 2 * portraitY, Math.max(390, contentBottom - pad));
+    context.save();
+    roundedRect(portraitX, portraitY, portraitWidth, portraitHeight, 8);
+    context.clip();
+    context.fillStyle = '#c98f55';
+    context.fillRect(portraitX, portraitY, portraitWidth, portraitHeight);
+    const portrait = await loadCardImage(artist.avatar);
+    if (portrait) {
+      const scale = Math.max(portraitWidth / portrait.width, portraitHeight / portrait.height);
+      const drawWidth = portrait.width * scale;
+      const drawHeight = portrait.height * scale;
+      context.drawImage(portrait, portraitX + (portraitWidth - drawWidth) / 2, portraitY + (portraitHeight - drawHeight) / 2, drawWidth, drawHeight);
+    } else {
+      context.fillStyle = '#f3ead9';
+      context.textAlign = 'center';
+      context.font = '600 160px Georgia, serif';
+      context.fillText((name?.[0] || 'S').toUpperCase(), portraitX + portraitWidth / 2, portraitY + portraitHeight / 2);
+    }
+    context.restore();
+    context.strokeStyle = '#a8832f';
+    context.lineWidth = 3;
+    roundedRect(portraitX - 9, portraitY - 9, portraitWidth + 18, portraitHeight + 18, 9);
+    context.stroke();
+
+    context.textAlign = 'left';
+    context.fillStyle = '#df7650';
+    context.font = '600 46px Arial, sans-serif';
+    context.fillText('\u092a\u0939\u091a\u093e\u0928', rightX, 158);
+    context.fillStyle = '#c39a46';
+    context.font = '600 18px Arial, sans-serif';
+    context.fillText('Pehchaan', rightX + 180, 158);
+
+    let y = 250;
+    context.fillStyle = '#f3ead9';
+    context.font = nameFont;
+    nameLines.forEach(line => { context.fillText(line, rightX, y); y += 88; });
+    context.fillStyle = '#df7650';
+    context.font = roleFont;
+    roleLines.forEach(line => { context.fillText(line, rightX, y + 4); y += 52; });
+    context.fillStyle = '#c6ad98';
+    context.font = '23px Arial, sans-serif';
+    locationLines.forEach(line => { context.fillText(line, rightX, y + 1); y += 32; });
+    y += 26;
+
+    if (statementLines.length) {
+      context.fillStyle = '#df7650';
+      context.fillRect(rightX, y - 4, 2, statementLines.length * 38 + 6);
+      context.fillStyle = '#eadccd';
+      context.font = statementFont;
+      statementLines.forEach(line => { context.fillText(line, rightX + 22, y + 18); y += 38; });
+      y += 26;
+    }
+    if (specialisations.length) {
+      context.fillStyle = '#b89a7e';
+      context.font = '600 18px Arial, sans-serif';
+      context.fillText('Hunaar', rightX, y + 18);
+      y += 30;
+      chipRows.forEach(row => {
+        let x = rightX;
+        row.items.forEach(chip => {
+          context.strokeStyle = '#654a39';
+          context.lineWidth = 2;
+          roundedRect(x, y, chip.width, 40, 20);
+          context.stroke();
+          context.fillStyle = '#eadccd';
+          context.textAlign = 'center';
+          context.font = '600 18px Arial, sans-serif';
+          context.fillText(chip.label, x + chip.width / 2, y + 26, chip.width - 20);
+          x += chip.width + 12;
+        });
+        y += 48;
+      });
+    }
+
     const qrCanvas = document.querySelector('#qr canvas');
-    if (qrCanvas) { context.fillStyle = '#fff'; context.fillRect(820, 1060, 160, 160); context.drawImage(qrCanvas, 830, 1070, 140, 140); }
-    context.fillStyle = '#2a1a12';
-    context.font = '600 38px Georgia,serif';
-    context.fillText('SURAAG PROFILE CARD', 100, 830);
-    context.font = '600 80px Georgia,serif';
-    context.fillText(name.slice(0, 22), 100, 960);
-    context.fillStyle = '#a9502f';
-    context.font = 'italic 46px Georgia,serif';
-    context.fillText(artist.primaryRole || '', 100, 1030);
-    context.fillStyle = '#6b5444';
-    context.font = '28px Arial,sans-serif';
-    context.fillText([artist.location, (artist.genres || []).slice(0, 3).join(', ')].filter(Boolean).join(' | ').slice(0, 48), 100, 1090);
-    context.font = '22px Arial,sans-serif';
-    context.fillText(url, 100, 1250, 700);
-    if (artist.avatar) image.src = artist.avatar;
-    else save();
+    const qrX = rightX;
+    const qrY = canvas.height - pad - qrSize;
+    context.fillStyle = '#f3ead9';
+    roundedRect(qrX, qrY, qrSize, qrSize, 12);
+    context.fill();
+    if (qrCanvas) context.drawImage(qrCanvas, qrX + 10, qrY + 10, qrSize - 20, qrSize - 20);
+    context.textAlign = 'left';
+    context.fillStyle = '#c6ad98';
+    context.font = '18px Arial, sans-serif';
+    context.fillText("Scan to open this artist's Suraag profile", qrX + qrSize + qrGap, qrY + 56, rightWidth - qrSize - qrGap);
+    context.fillStyle = '#df7650';
+    context.font = '600 21px Arial, sans-serif';
+    context.fillText('suraag.in', qrX + qrSize + qrGap, qrY + 88);
+    return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+  };
+
+  useEffect(() => {
+    let active = true;
+    cardBlobRef.current = null;
+    setCardBlobReady(false);
+    createCardBlob()
+      .then(blob => {
+        if (!active) return;
+        cardBlobRef.current = blob;
+        setCardBlobReady(Boolean(blob));
+      })
+      .catch(() => {
+        if (active) setCardBlobReady(false);
+      });
+    return () => { active = false; };
+  }, [artist, name, slug, statement, url]);
+
+  const downloadCard = async () => {
+    const blob = cardBlobRef.current || await createCardBlob();
+    if (!blob) return notify('Unable to create the artist card');
+    cardBlobRef.current = blob;
+    setCardBlobReady(true);
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = objectUrl;
+    link.download = `${slug}-suraag-card.png`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    notify('Card downloaded');
+  };
+
+  const share = async () => {
+    if (!navigator.share) {
+      setSharing(true);
+      return;
+    }
+    const blob = cardBlobRef.current;
+    if (!blob) {
+      setSharing(true);
+      notify('The artist card is still loading. Try sharing again in a moment.');
+      return;
+    }
+
+    const file = new File([blob], `${slug}-suraag-card.png`, { type: 'image/png' });
+    const fileShareData = {
+      title: `${name} | ${artist.primaryRole} — Suraag`,
+      text: `${name} (${artist.primaryRole}) on Suraag: ${url}`,
+      files: [file]
+    };
+    if (navigator.canShare && !navigator.canShare({ files: [file] })) {
+      setSharing(true);
+      notify('This device cannot share image files. Save the card to share it.');
+      return;
+    }
+    navigator.share(fileShareData).catch(error => {
+      if (error?.name !== 'AbortError') {
+        setSharing(true);
+        notify('Could not open the share menu. Use the share options below.');
+      }
+    });
   };
   const reveal = (index) => ({ className: 'rise', style: { '--i': index } });
   const releaseNotes = event => {
@@ -234,7 +406,7 @@ export default function PublicArtistPage({ artist }) {
         {showFullProfile && (
           <section className="profile" id="profile" aria-label="Full profile">
             {!!bio.length && <div className="sec"><h2>Artist's story<small>Safar</small></h2><div>{bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></div>}
-            {(training || artist.parampara?.length) && <div className="sec"><h2>Guru Parampara<small className="hi" lang="hi">गुरु परंपरा</small></h2><div>
+            {(training || artist.parampara?.length) && <div className="sec"><h2>Guru Parampara<small className="hi" lang="hi">{'गुरु परंपरा'}</small></h2><div>
               {training?.gurus?.[0] && <><div className="gname">{training.gurus[0].name}</div><p className="gmeta">{[training.gurus[0].style, training.style, training.institutions?.join(', ')].filter(Boolean).join(' · ')}</p></>}
               {training?.yearsOfPractice && <p>Learning and performing for {training.yearsOfPractice} years.</p>}
               {!!training?.gurus?.length && <><p className="h" style={{ marginTop: 22 }}>Lineage</p><ol className="tl">{training.gurus.map((guru, i) => <li key={`${guru.name}-${i}`}><b>{guru.name}</b><span>{guru.style || 'Guru'}</span></li>)}</ol></>}
@@ -255,21 +427,12 @@ export default function PublicArtistPage({ artist }) {
     <div className={`sheet ${sharing ? 'visible' : ''}`} role="dialog" aria-modal="true" aria-label="Share this artist card" aria-hidden={!sharing}>
       <div className="shh"><b>Share this card</b><button onClick={() => setSharing(false)} aria-label="Close">×</button></div>
       
-      {/* Share Link Preview Banner */}
-      <div className="banner-preview-box">
-        <img src="/suraag-banner.jpg" alt="Suraag Link Preview Banner" className="banner-preview-img" />
-        <div className="banner-preview-overlay">
-          <span className="banner-preview-pill">Link preview banner</span>
-          <span className="banner-preview-name">{name} • {artist.primaryRole}</span>
-        </div>
-      </div>
-
       <div className="linkrow"><input readOnly aria-label="Card link" value={url} onFocus={event => event.target.select()} /><button className="btn solid" onClick={copyLink}>Copy</button></div>
+      {navigator.share && !cardBlobReady && <p className="share-status" role="status">Preparing the card image and share options…</p>}
       <div className="opts">
         <a className="opt" href={`https://wa.me/?text=${encodeURIComponent(`${name}, ${artist.primaryRole} on Suraag: ${url}`)}`} target="_blank" rel="noreferrer"><span>↗</span>WhatsApp</a>
         <button className="opt" onClick={downloadCard}><span>↓</span>Save card</button>
-        <button className="opt" onClick={downloadBanner}><span>🖼</span>Save banner</button>
-        {navigator.share && <button className="opt" onClick={share}><span>→</span>More apps</button>}
+        {navigator.share && <button className="opt" onClick={share} disabled={!cardBlobReady}><span>→</span>More apps</button>}
       </div>
     </div>
     <div className={`toast ${toast ? 'on' : ''}`} role="status">{toast}</div>

@@ -37,10 +37,49 @@
 .artist-profile-page .demo { color: var(--terra); font-size: 13px; font-weight: 500; }
 
 /* Card Shell */
-.artist-profile-page .artist-card { display: block; margin: 26px 0 56px; padding: 40px 36px 20px; border: 10px solid color-mix(in srgb, var(--paper) 38%, transparent); border-radius: 32px; background: color-mix(in srgb, var(--paper2) 62%, transparent) padding-box; box-shadow: 0 40px 70px -30px rgba(42,26,18,.55), 0 0 0 1px rgba(168,131,47,.4); -webkit-backdrop-filter: blur(16px) saturate(1.15); backdrop-filter: blur(16px) saturate(1.15); transform: perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transition: transform .5s cubic-bezier(.2,.8,.2,1); animation: artist-cardin .9s cubic-bezier(.2,.8,.2,1) both; }
+.artist-profile-page .artist-card { position: relative; display: block; margin: 26px 0 56px; padding: 40px 36px 20px; border: 10px solid color-mix(in srgb, var(--paper) 38%, transparent); border-radius: 32px; background: color-mix(in srgb, var(--paper2) 62%, transparent) padding-box; box-shadow: 0 40px 70px -30px rgba(42,26,18,.55), 0 0 0 1px rgba(168,131,47,.4); -webkit-backdrop-filter: blur(16px) saturate(1.15); backdrop-filter: blur(16px) saturate(1.15); transform: perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transition: transform .5s cubic-bezier(.2,.8,.2,1); animation: artist-cardin .9s cubic-bezier(.2,.8,.2,1) both; isolation: isolate; }
+.artist-profile-page .artist-card::before {
+  position: absolute;
+  z-index: 3;
+  inset: -8px;
+  border: 2px solid transparent;
+  border-radius: 40px;
+  background: conic-gradient(from var(--artist-spark-angle, 0deg),
+    transparent 0deg,
+    transparent 290deg,
+    rgba(255, 229, 153, .15) 318deg,
+    #dcb85d 340deg,
+    #fff1aa 350deg,
+    rgba(255, 229, 153, .15) 358deg,
+    transparent 360deg) border-box;
+  content: "";
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 5px rgba(220, 184, 93, .45));
+  animation: artist-border-spark 14s linear infinite;
+}
 .artist-profile-page .cover { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,6fr); gap: 40px; align-items: center; min-height: calc(100svh - 190px); padding-bottom: 28px; }
 .artist-profile-page .rise { animation: artist-up .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(.55s + var(--i)*.11s); }
 @keyframes artist-cardin { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+@property --artist-spark-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes artist-border-spark {
+  0%, 15% { --artist-spark-angle: 0deg; opacity: .55; }
+  38% { --artist-spark-angle: 135deg; opacity: .9; }
+  68% { --artist-spark-angle: 270deg; opacity: .75; }
+  82%, 100% { --artist-spark-angle: 360deg; opacity: .55; }
+}
+@keyframes artist-name-shine {
+  0%, 64% { background-position: 140% 50%; }
+  72% { background-position: 70% 50%; }
+  82% { background-position: -140% 50%; }
+  100% { background-position: -140% 50%; }
+}
 
 /* Photo Frame */
 .artist-profile-page .frame { position: relative; aspect-ratio: 4/5; padding: 10px; border: 1px solid var(--gold); animation: artist-fade .8s ease both; }
@@ -51,7 +90,26 @@
 .artist-profile-page .num { position: absolute; bottom: -34px; left: -1px; color: var(--soft); font-size: 13px; }
 
 /* Text Content */
-.artist-profile-page h1 { margin: 0 0 18px; font: 600 clamp(44px,7.4vw,92px)/.95 var(--serif); font-variation-settings: "opsz" 144; letter-spacing: -.02em; }
+.artist-profile-page h1 {
+  margin: 0 0 18px;
+  font: 600 clamp(44px,7.4vw,92px)/.95 var(--serif);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -.02em;
+  background: linear-gradient(105deg,
+    var(--ink) 0%,
+    var(--ink) 36%,
+    #a8832f 43%,
+    #fff1aa 48%,
+    #dcb85d 53%,
+    var(--ink) 60%,
+    var(--ink) 100%);
+  background-size: 240% 100%;
+  background-position: 140% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: artist-name-shine 9s ease-in-out 2.5s infinite;
+}
 .artist-profile-page .cap { display: flex; align-items: baseline; gap: 12px; margin: 0 0 12px; font-family: "Rajdhani",var(--sans); font-weight: 600; line-height: 1; }
 .artist-profile-page .cap span { color: var(--terra); font-size: clamp(34px,4.6vw,52px); }
 .artist-profile-page .cap small { color: var(--gold); font-size: 20px; letter-spacing: .06em; }
@@ -223,9 +281,11 @@
 
 .artist-profile-page .linkrow { display: flex; gap: 8px; }
 .artist-profile-page .linkrow input { flex: 1; min-width: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--ink); font: 14px var(--sans); }
+.artist-profile-page .share-status { margin: 10px 0 0; color: var(--soft); font-size: 13px; }
 .artist-profile-page .opts { display: grid; grid-template-columns: repeat(auto-fit,minmax(92px,1fr)); gap: 10px; margin-top: 14px; }
 .artist-profile-page .opt { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 8px; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb,var(--paper2) 70%,transparent); font-size: 14px; text-decoration: none; transition: transform .3s cubic-bezier(.34,1.56,.64,1),border-color .2s; }
 .artist-profile-page .opt:hover { transform: translateY(-3px); border-color: var(--terra); }
+.artist-profile-page .opt:disabled { cursor: wait; opacity: .55; }
 .artist-profile-page .toast { position: fixed; z-index: 30; bottom: calc(24px + env(safe-area-inset-bottom,0px)); left: 50%; transform: translate(-50%,20px); padding: 10px 18px; background: var(--espresso); color: #f3ead9; opacity: 0; pointer-events: none; transition: .3s; }
 .artist-profile-page .toast.on { transform: translate(-50%,0); opacity: 1; }
 @keyframes artist-fade { from { opacity: 0; } to { opacity: 1; } }
@@ -278,6 +338,10 @@
     border: 3px solid color-mix(in srgb, var(--paper) 45%, transparent);
     border-radius: 24px;
     box-shadow: 0 16px 36px -12px rgba(42,26,18,.3), 0 0 0 1px rgba(168,131,47,.25);
+  }
+  .artist-profile-page .artist-card::before {
+    inset: -5px;
+    border-radius: 29px;
   }
 
   .artist-profile-page .cover {
@@ -564,6 +628,9 @@
   .artist-profile-page .artist-card {
     padding: 24px 18px 22px;
     border-radius: 20px;
+  }
+  .artist-profile-page .artist-card::before {
+    border-radius: 25px;
   }
 }
 
