@@ -1,5 +1,16 @@
 {
   "rewrites": [
+    {
+      "source": "/:slug",
+      "destination": "/api/profile-preview?slug=:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Twitterbot|LinkedInBot|TelegramBot|Discordbot).*"
+        }
+      ]
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
