@@ -15,6 +15,9 @@ const FOUNDING_ARTIST_LIMIT = 30;
 
 function ArtistCard({ musician, isOwn, connectionStatus, toggleConnection, playTrack, currentTrack, isPlaying }) {
   const profileUrl = `/${artistSlug(musician)}`;
+  const whatsappNumber = musician.contact?.publicDetails?.includes('whatsapp')
+    ? String(musician.contact.whatsapp || '').replace(/\D/g, '')
+    : '';
   const primaryTrack = musician.audioTracks?.[0];
   const isTrackPlaying = isPlaying && currentTrack?.id === primaryTrack?.id;
 
@@ -28,7 +31,7 @@ function ArtistCard({ musician, isOwn, connectionStatus, toggleConnection, playT
             className="w-full h-full object-cover opacity-75"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-          {musician.openToGigs && (
+          {musician.openToGigs && musician.showGigAvailabilityBadge !== false && (
             <span className="absolute top-3 right-3 bg-white/95 backdrop-blur-md text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-300 shadow-sm flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               Open for Gigs
@@ -100,6 +103,17 @@ function ArtistCard({ musician, isOwn, connectionStatus, toggleConnection, playT
         >
           View Profile
         </a>
+        {!isOwn && whatsappNumber && (
+          <a
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`WhatsApp DM ${musician.name}`}
+            className="px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-[#25D366] hover:bg-[#1ebe5d] text-white transition"
+          >
+            WhatsApp DM
+          </a>
+        )}
         {!isOwn && (
           <button
             onClick={() => toggleConnection(musician.id)}

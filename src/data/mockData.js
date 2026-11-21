@@ -841,7 +841,8 @@ collaborationPreferences: [
   contact: {
     email: "asmitjana7@gmail.com",
     phone: "9433325117",
-    publicDetails: []
+    whatsapp: "919433325117",
+    publicDetails: ["whatsapp"]
   },
   portfolioConsent: {
     canCreatePortfolio: true,
@@ -866,6 +867,7 @@ collaborationPreferences: [
     "Semi-Classical Music"
   ],
   openToGigs: true,
+  showGigAvailabilityBadge: false,
   gigTypes: ["Music Collaborations", "Jam Sessions"],
   rate: null,
   connectionsCount: 0,
