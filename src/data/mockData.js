@@ -95,13 +95,21 @@ export const INITIAL_MUSICIANS = [
       numberOfGurus: 4,
       gurus: [
         {
+          name: "Madhura",
+          style: "Carnatic"
+        },
+        {
+          name: "Chinmay M Rao",
+          style: "Carnatic"
+        },
+        {
           name: "Vidwan Tirumale Srinivas",
           style: "Carnatic"
         },
         {
           name: "Narahari Dixit",
           style: "Light Music"
-        }
+        },
       ],
       institutions: [
         "Samanvaya Sangeetha Shaale",
