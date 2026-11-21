@@ -691,6 +691,162 @@ collaborationPreferences: [
     canCreatePortfolio: true,
     publicAfterApproval: true
   }
+},
+{
+  id: "user-pranjal-sengupta",
+  name: "Pranjal Sengupta",
+  stageName: "Pranjal Sengupta",
+  isVerified: false,
+  headline: "Vocalist & Cajon Player | Pop, Retro, Bengali Folk & Rabindrasangeet | Kolkata",
+  location: "Kolkata, West Bengal",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795278407/Screenshot_2026-11-21_at_8.19.13_PM.png",
+  coverImage: null,
+  primaryRole: "Vocalist & Cajon Player",
+  instruments: ["Vocals", "Cajon"],
+  genres: [
+    "English Pop",
+    "Hindi Pop",
+    "Bengali Pop",
+    "Retro English",
+    "Indian Semi-Classical",
+    "Adhunik",
+    "Rabindrasangeet",
+    "Bengali Folk"
+  ],
+  openToGigs: true,
+  gigTypes: [
+    "Online Collaborations",
+    "Offline Collaborations",
+    "Live Performances"
+  ],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "An aspiring vocalist and lifelong music lover who enjoys bringing music into every aspect of life. With two years of classical training followed by 15 years of independent practice, Pranjal explores a wide range of styles, from pop and retro music to Bengali folk and Rabindrasangeet.",
+  audioTracks: [],
+  videos: [
+    {
+      title: "YouTube Channel",
+      platform: "YouTube",
+      url: "https://www.youtube.com/@PranjalSengupta"
+    }
+  ],
+  skills: [
+    { name: "Vocals", endorsements: 0 },
+    { name: "Cajon", endorsements: 0 },
+    { name: "Bengali Folk", endorsements: 0 },
+    { name: "Rabindrasangeet", endorsements: 0 },
+    { name: "Indian Semi-Classical Music", endorsements: 0 },
+    { name: "Pop & Retro Music", endorsements: 0 },
+    { name: "Mashups", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "I can't help but make mashups. Whenever I find two songs that give off similar vibes, I like to bring them together and perform them as a mashup.",
+  musicalTraining: {
+    yearsOfPractice: "17 years total (2 years of classical training + 15 years of independent practice)",
+    numberOfGurus: 2,
+    gurus: [
+      { name: "My Mother", style: "Semi-Classical, Adhunik, Folk & Retro Hindi" },
+      { name: "Dr. Kanika Bhattacharya", style: "Hindustani" }
+    ],
+    institutions: ["Bani Chakra, Kolkata"],
+    style: "Hindustani, Semi-Classical & Bengali Folk"
+  },
+  achievements: [
+    "Special Mention in Bengali Folk",
+    "Invited to perform at Anwesha 2023, IIT Patna"
+  ],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to online collaborations",
+    "Open to offline collaborations in Kolkata",
+    "Open to performances"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/pranjal.sengupta",
+    youtube: "https://www.youtube.com/@PranjalSengupta",
+    facebook: "https://www.facebook.com/profile.php?id=61550729139911",
+    other: []
+  },
+  contact: {
+    email: "pranjalsengupta5@gmail.com",
+    phone: "6294841044",
+    publicDetails: ["instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-asmit",
+  name: "Asmit",
+  stageName: "Asmit",
+  isVerified: false,
+  headline: "Multi-Instrumentalist | Drums, Tabla & Keyboard | Rock, Pop & Blues | Kolkata",
+  location: "Kolkata, West Bengal",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795278436/IMG-20261102-WA0038.jpg", // Image filename provided, but no accessible image URL
+  coverImage: null,
+  primaryRole: "Multi-Instrumentalist",
+  instruments: ["Drums", "Keyboard", "Tabla", "Vocals"],
+  genres: [
+    "Rock",
+    "Pop",
+    "Blues",
+    "Western Classical",
+    "Open to Exploring Other Genres"
+  ],
+  openToGigs: false,
+  gigTypes: [],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A percussion-focused musician with around 10 years of experience learning Tabla and a growing interest in the keyboard, which he has been exploring for approximately two years. Drawn to piano and Western classical music, he also enjoys singing while playing the keyboard. Primarily self-taught, he approaches music as a personal and emotional form of expression rather than striving for technical perfection.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Tabla", endorsements: 0 },
+    { name: "Drums", endorsements: 0 },
+    { name: "Keyboard", endorsements: 0 },
+    { name: "Vocals", endorsements: 0 },
+    { name: "Percussion", endorsements: 0 },
+    { name: "Self-Led Musical Exploration", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "Music is an emotional outlet and a way of journaling my experiences. Whether I am sad, happy, excited or frustrated, I find ways to express those feelings through playing and singing. My music is raw, personal and constantly evolving. I don't chase perfection; I try to improve with every attempt while finding comfort in the process.",
+  musicalTraining: {
+    yearsOfPractice: "Tabla: approximately 10 years (currently returning to practice); Keyboard: approximately 2 years; Vocals: informal, self-led",
+    numberOfGurus: 0,
+    gurus: [],
+    institutions: [],
+    style: "Primarily self-taught; percussion background"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Contact via WhatsApp DM: 9433325117"
+  ],
+  socialLinks: {
+    instagram: null,
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "asmitjana7@gmail.com",
+    phone: "9433325117",
+    publicDetails: []
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 

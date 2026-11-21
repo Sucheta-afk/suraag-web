@@ -41,7 +41,8 @@ export default function TopHeader() {
             type="text"
             value={globalSearch}
             onChange={(e) => setGlobalSearch(e.target.value)}
-            placeholder="Search artists, genres, events..."
+            aria-label="Search artists"
+            placeholder="Search artists, genres, instruments..."
             className="w-full bg-white/95 hover:bg-white focus:bg-white text-xs sm:text-sm text-[#422315] placeholder-[#9a7d66] pl-10 pr-4 py-2 sm:py-2.5 rounded-full border border-[#E4D4BD] focus:outline-none focus:ring-2 focus:ring-amber-400/50 shadow-sm transition"
           />
         </div>
