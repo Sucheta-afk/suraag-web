@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import SidebarNav from './components/SidebarNav';
-import RightSidebar from './components/RightSidebar';
 import TopHeader from './components/TopHeader';
 import MobileBottomNav from './components/MobileBottomNav';
 import AudioPlayerBar from './components/AudioPlayerBar';
@@ -10,11 +9,8 @@ import PostModal from './components/PostModal';
 import GigModal from './components/GigModal';
 import ApplyGigModal from './components/ApplyGigModal';
 import InviteCollabModal from './components/InviteCollabModal';
-import EditProfileModal from './components/EditProfileModal';
 
-import FeedPage from './pages/FeedPage';
 import DiscoverPage from './pages/DiscoverPage';
-import ProfilePage from './pages/ProfilePage';
 import GigsPage from './pages/GigsPage';
 import NetworkPage from './pages/NetworkPage';
 import MessagesPage from './pages/MessagesPage';
@@ -42,9 +38,7 @@ function MainLayout() {
 
   return (
     <div className={`min-h-screen bg-[#F8EFDF] text-[#422315] selection:bg-[#D99A42] selection:text-[#422315] flex ${
-      activeTab === 'profile'
-        ? currentTrack ? 'pb-28' : 'pb-16 lg:pb-8'
-        : currentTrack ? 'pb-24' : 'pb-10'
+      currentTrack ? 'pb-24' : 'pb-10'
     }`}>
       
       {/* Toast Notification Alert */}
@@ -74,32 +68,22 @@ function MainLayout() {
 
         {/* Dynamic Page Content */}
         <div
-          className={`flex-1 w-full mx-auto ${
-            activeTab === 'profile'
-              ? 'max-w-none px-0'
-              : 'max-w-[1320px] px-4 sm:px-6'
+          className={`flex-1 w-full mx-auto max-w-[1320px] px-4 sm:px-6 ${
+            activeTab === 'feed' ? 'flex items-center justify-center' : ''
           }`}
         >
           {activeTab === 'feed' ? (
-            /* 3-Column Layout on Home/Feed: Middle Feed + Right Events/Trending/Ads */
-            <div className="flex gap-6 items-start justify-center">
-              {/* Middle Feed Column */}
-              <div className="flex-1 max-w-2xl min-w-0">
-                <FeedPage />
-              </div>
-
-              {/* Right Sidebar Column */}
-              <RightSidebar />
-            </div>
+            <h1 className="text-center font-serif text-5xl font-bold text-[#6F4E37] sm:text-6xl md:text-7xl">
+              Launching Soon!
+            </h1>
           ) : (
-            /* Other Tabs: Discover, Collaborations, Events, Messages, Notifications, Profile */
-            <div className={activeTab === 'profile' ? '' : 'py-4'}>
+            /* Discover page */
+            <div className="py-4">
               {activeTab === 'discover' && <DiscoverPage />}
               {activeTab === 'network' && <NetworkPage />}
               {activeTab === 'gigs' && <GigsPage />}
               {activeTab === 'messages' && <MessagesPage />}
               {activeTab === 'notifications' && <NotificationsPage />}
-              {activeTab === 'profile' && <ProfilePage />}
             </div>
           )}
         </div>
@@ -111,7 +95,6 @@ function MainLayout() {
       <GigModal />
       <ApplyGigModal />
       <InviteCollabModal />
-      <EditProfileModal />
 
       {/* Persistent Audio Player Bar */}
       <AudioPlayerBar />

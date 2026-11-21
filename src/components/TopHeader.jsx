@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useApp } from '../context/AppContext';
-import { Search, Sparkles, ChevronDown, Check, User, Edit3, LogOut, Radio } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 
 export default function TopHeader() {
   const {
-    currentUser,
-    musicians,
-    switchUser,
-    viewProfile,
     globalSearch,
     setGlobalSearch,
-    setActiveTab,
-    setIsEditProfileModalOpen
+    setActiveTab
   } = useApp();
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -54,9 +47,8 @@ export default function TopHeader() {
         </div>
       </form>
 
-      {/* Right User Bar: Sparkle + Profile Avatar Dropdown */}
-      <div className="flex items-center gap-3 relative">
-        
+      {/* Discover shortcut */}
+      <div className="flex items-center gap-3">
         {/* Golden Sparkle Icon */}
         <button
           onClick={() => setActiveTab('discover')}
@@ -66,94 +58,6 @@ export default function TopHeader() {
           <span className="absolute inset-1 rounded-full bg-gradient-to-br from-white/70 to-[#D99A42]/10 blur-[1px]" />
           <Sparkles className="relative w-5 h-5 fill-[#D99A42]/35 drop-shadow-[0_1px_3px_rgba(217,154,66,0.55)]" />
         </button>
-
-        {/* User Avatar with Dropdown Indicator */}
-        <div className="relative">
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center gap-1.5 p-0.5 rounded-full hover:ring-2 hover:ring-amber-400/60 transition group"
-          >
-            <img
-              src={currentUser.avatar}
-              alt={currentUser.name}
-              className="w-9 h-9 rounded-full object-cover border border-[#D99A42] shadow-sm"
-            />
-            <ChevronDown className="w-3.5 h-3.5 text-[#7d6148] group-hover:text-[#422315] transition" />
-          </button>
-
-          {/* User Menu Dropdown */}
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-[#E4D4BD] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-              
-              {/* Current Profile Summary */}
-              <div
-                onClick={() => {
-                  viewProfile(currentUser.id);
-                  setIsDropdownOpen(false);
-                }}
-                className="px-4 py-2.5 border-b border-[#f0e3d6] cursor-pointer hover:bg-[#F8EFDF] flex items-center gap-3 transition"
-              >
-                <img
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
-                  className="w-10 h-10 rounded-full object-cover border border-amber-400"
-                />
-                <div className="overflow-hidden">
-                  <p className="text-xs font-bold text-[#422315] truncate">{currentUser.name}</p>
-                  <p className="text-[11px] text-[#8a684b] truncate">{currentUser.primaryRole}</p>
-                  <span className="text-[10px] text-amber-700 font-semibold hover:underline">View Profile →</span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="py-1 border-b border-[#f0e3d6]">
-                <button
-                  onClick={() => {
-                    setIsEditProfileModalOpen(true);
-                    setIsDropdownOpen(false);
-                  }}
-                  className="w-full text-left px-4 py-1.5 text-xs text-[#4b3523] hover:bg-[#F8EFDF] flex items-center gap-2 transition"
-                >
-                  <Edit3 className="w-3.5 h-3.5 text-[#8a684b]" />
-                  <span>Edit My Profile</span>
-                </button>
-              </div>
-
-              {/* Persona Switcher for Quick Testing */}
-              <div className="px-4 pt-2 pb-1">
-                <span className="text-[10px] font-bold text-[#9a7d66] uppercase tracking-wider">
-                  Switch Persona (Demo)
-                </span>
-              </div>
-              <div className="space-y-0.5">
-                {musicians.map((m) => (
-                  <button
-                    key={m.id}
-                    onClick={() => {
-                      switchUser(m.id);
-                      setIsDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-1.5 text-xs flex items-center justify-between transition ${
-                      m.id === currentUser.id
-                        ? 'bg-[#faedd8] font-bold text-[#422315]'
-                        : 'text-[#583f2e] hover:bg-[#F8EFDF]'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 truncate">
-                      <img src={m.avatar} alt={m.name} className="w-5 h-5 rounded-full object-cover" />
-                      <span className="truncate">{m.name}</span>
-                    </div>
-                    {m.id === currentUser.id && (
-                      <Check className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
-                    )}
-                  </button>
-                ))}
-              </div>
-
-            </div>
-          )}
-        </div>
-
       </div>
 
     </header>

@@ -8,6 +8,7 @@ import {
   INITIAL_EVENTS
 } from '../data/mockData';
 import { audioEngine } from '../utils/audioEngine';
+import { artistSlug } from '../utils/artistSlug';
 
 const AppContext = createContext();
 const DISABLED_TABS = new Set(['network', 'gigs', 'messages', 'notifications']);
@@ -468,11 +469,10 @@ export function AppProvider({ children }) {
     showToast('Message sent!');
   };
 
-  // Navigate to profile
+  // Open the public artist page.
   const viewProfile = (musicianId) => {
-    setViewedProfileId(musicianId);
-    setActiveTab('profile');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const musician = musicians.find(item => item.id === musicianId);
+    if (musician) window.location.assign(`/${artistSlug(musician)}`);
   };
 
   return (

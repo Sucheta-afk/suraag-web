@@ -3,20 +3,14 @@ import { useApp } from '../context/AppContext';
 import sidebarArtwork from '../assets/sidebar-artwork.png';
 import {
   Home,
-  Compass,
-  User
+  Compass
 } from 'lucide-react';
 
 export default function SidebarNav() {
   const {
     activeTab,
-    setActiveTab,
-    viewProfile,
-    currentUser,
-    viewedProfileId
+    setActiveTab
   } = useApp();
-
-  const isProfileActive = activeTab === 'profile' && viewedProfileId === currentUser.id;
 
   const navItems = [
     {
@@ -32,13 +26,6 @@ export default function SidebarNav() {
       icon: Compass,
       onClick: () => setActiveTab('discover'),
       isActive: activeTab === 'discover'
-    },
-    {
-      id: 'profile',
-      label: 'Profile',
-      icon: User,
-      onClick: () => viewProfile(currentUser.id),
-      isActive: isProfileActive
     }
   ];
 
