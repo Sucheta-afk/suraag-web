@@ -4,6 +4,11 @@ import './ArtistProfile.css';
 
 const notes = ['\u266a', '\u266b', '\u266c', '\u2669'];
 
+function formatPracticeDuration(duration) {
+  const value = String(duration).trim();
+  return /\b(?:years?|months?|weeks?|days?)\b/i.test(value) ? value : `${value} years`;
+}
+
 function getSocialLinks(links = {}) {
   if (Array.isArray(links)) return links.filter(link => link?.u && link.u !== '#');
   return Object.entries(links)
@@ -415,7 +420,7 @@ export default function PublicArtistPage({ artist }) {
             {!!bio.length && <div className="sec"><h2>Artist's story<small className="hi" lang="hi">परिचय</small></h2><div>{bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></div>}
             {(training || artist.parampara?.length) && <div className="sec"><h2>Guru Parampara<small className="hi" lang="hi">{'गुरु परंपरा'}</small></h2><div>
               {training?.gurus?.[0] && <><div className="gname">{training.gurus[0].name}</div><p className="gmeta">{[training.gurus[0].style, training.style, training.institutions?.join(', ')].filter(Boolean).join(' · ')}</p></>}
-              {training?.yearsOfPractice && <p>Learning and performing for {training.yearsOfPractice} years.</p>}
+              {training?.yearsOfPractice && <p>Learning and performing for {formatPracticeDuration(training.yearsOfPractice)}.</p>}
               {!!training?.gurus?.length && <><p className="h" style={{ marginTop: 22 }}>Lineage</p><ol className="tl">{training.gurus.map((guru, i) => <li key={`${guru.name}-${i}`}><b>{guru.name}</b><span>{guru.style || 'Guru'}</span></li>)}</ol></>}
               {!!artist.parampara?.length && <ol className="tl">{artist.parampara.map(item => <li key={item.n}><b>{item.n}</b><span>{item.r}</span></li>)}</ol>}
             </div></div>}

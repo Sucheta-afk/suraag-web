@@ -847,6 +847,74 @@ collaborationPreferences: [
     canCreatePortfolio: true,
     publicAfterApproval: true
   }
+},
+{
+  id: "user-rahul-baradol",
+  name: "Rahul",
+  stageName: "Rahul Baradol",
+  isVerified: false,
+  headline: "Progressive Acoustic Guitarist | Pop & Contemporary Arrangements | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795282566/rahulbaradol.jpg",
+  coverImage: null,
+  primaryRole: "Guitarist",
+  instruments: ["Guitar"],
+  genres: [
+    "Progressive Acoustic",
+    "Pop",
+    "Classical Music",
+    "Semi-Classical Music"
+  ],
+  openToGigs: true,
+  gigTypes: ["Music Collaborations", "Jam Sessions"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A guitarist exploring the intersection of progressive techniques and pop music. With eight months of practice, Rahul enjoys experimenting with technical arrangements while using pop as a medium for expression and emotion. Classical and semi-classical music also influence his approach to dynamics, atmosphere and phrasing.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Guitar", endorsements: 0 },
+    { name: "Progressive Guitar Techniques", endorsements: 0 },
+    { name: "Acoustic Arrangements", endorsements: 0 },
+    { name: "Pop Music", endorsements: 0 },
+    { name: "Musical Arrangement", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "I enjoy blending progressive guitar techniques with pop music to create unique arrangements. Classical and semi-classical pieces also inspire me, particularly in how they bring dynamics, atmosphere and phrasing into the music.",
+  musicalTraining: {
+    yearsOfPractice: "8 months",
+    numberOfGurus: 0,
+    gurus: [],
+    institutions: [],
+    style: "Self-directed exploration of progressive acoustic and pop guitar"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to music collaborations",
+    "Open to jamming"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/rahulbaradol14/",
+    youtube: null,
+    facebook: null,
+    other: [
+      "https://rahulbaradol.in/"
+    ]
+  },
+  contact: {
+    email: "rahul.baradol.14@gmail.com",
+    phone: "09880050970",
+    publicDetails: ["email", "instagram", "otherSocialLinks"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 
