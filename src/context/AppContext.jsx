@@ -11,6 +11,7 @@ import { audioEngine } from '../utils/audioEngine';
 
 const AppContext = createContext();
 const DISABLED_TABS = new Set(['network', 'gigs', 'messages', 'notifications']);
+const musiciansStorageKey = `soundlink_musicians_${__APP_BUILD_ID__}`;
 
 export function AppProvider({ children }) {
   // Current user persona (defaults to Arjun Mehta from mockup)
@@ -20,7 +21,7 @@ export function AppProvider({ children }) {
   });
 
   const [musicians, setMusicians] = useState(() => {
-    const saved = localStorage.getItem('soundlink_musicians_v3');
+    const saved = localStorage.getItem(musiciansStorageKey);
     return saved ? JSON.parse(saved) : INITIAL_MUSICIANS;
   });
 
@@ -100,7 +101,7 @@ export function AppProvider({ children }) {
 
   // Sync state to LocalStorage
   useEffect(() => {
-    localStorage.setItem('soundlink_musicians_v3', JSON.stringify(musicians));
+    localStorage.setItem(musiciansStorageKey, JSON.stringify(musicians));
   }, [musicians]);
 
   useEffect(() => {

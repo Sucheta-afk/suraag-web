@@ -48,3 +48,11 @@ The application is running live at:
 - Bollywood OTT Period Drama tracking takes in Mumbai
 - High-profile royal wedding Sangeet orchestras in Udaipur
 - Multi-city Classical Fusion tours
+
+## Vercel deployment freshness
+
+`vercel.json` disables caching for app routes, HTML, API responses, and public files so browsers and the CDN do not retain stale deploy content. Vite's fingerprinted `/assets/` build files remain cached as immutable for one year. The profile-preview API also sends `no-store` directly.
+
+Artist demo data is stored in `localStorage` under the Vercel Git commit SHA. A new commit therefore loads the latest bundled profile data, while edits remain available during reloads of the same deployment. Local development uses a stable `local` key.
+
+After deploying, check response headers with `curl.exe -I https://suraag-web.vercel.app/v-sreenidhe` and `curl.exe -I -H "User-Agent: Twitterbot" https://suraag-web.vercel.app/v-sreenidhe`. Both should include a no-store `Cache-Control` directive. For an asset URL under `/assets/` copied from the page source, expect `public, max-age=31536000, immutable`.

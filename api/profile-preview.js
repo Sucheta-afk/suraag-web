@@ -33,7 +33,7 @@ export default function handler(request, response) {
   const title = `${name} — ${role} on Suraag`;
 
   response.setHeader('Content-Type', 'text/html; charset=utf-8');
-  response.setHeader('Cache-Control', 'public, max-age=300, s-maxage=3600');
+  response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
   response.status(200).send(`<!doctype html>
 <html lang="en">
   <head>
