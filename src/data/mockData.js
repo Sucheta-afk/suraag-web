@@ -611,6 +611,86 @@ collaborationPreferences: [
     canCreatePortfolio: true,
     publicAfterApproval: true
   }
+},
+{
+  id: "user-jayasimha-mg",
+  name: "Jayasimha MG",
+  stageName: "Jayasimha MG",
+  isVerified: false,
+  headline: "Hindustani Tabla Artist | Dasa Sahitya | Concerts & Music Videos | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795265819/IMG-20260922-WA0008.jpg",
+  coverImage: null,
+  primaryRole: "Tabla Artist",
+  instruments: ["Tabla"],
+  genres: ["Hindustani Classical", "Light Music", "Dasa Sahitya"],
+  openToGigs: true,
+  gigTypes: ["Concerts", "Music Videos"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A tabla artist with 15 years of musical practice and training in Hindustani music. Has completed the Junior level examination under the KSEEB board and Madhyama Prathama under the Akhil Bharatiya Gandharva Mahavidyalaya, Mumbai. Has performed at several notable venues and cultural events across Bengaluru and beyond.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Tabla", endorsements: 0 },
+    { name: "Hindustani Classical Music", endorsements: 0 },
+    { name: "Light Music", endorsements: 0 },
+    { name: "Dasa Sahitya", endorsements: 0 },
+    { name: "Rhythm & Percussion", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Tabla Artist",
+      organization: "Independent Performer",
+      description: "Performed at temples, cultural gatherings, devotional events and music recordings across Bengaluru and other locations."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "Dasa Sahitya is at the heart of my musical identity and artistic expression.",
+  musicalTraining: {
+    yearsOfPractice: 15,
+    numberOfGurus: 2,
+    gurus: [
+      { name: "Pt. Amrutesh Kulkarni", style: "Hindustani" },
+      { name: "Pt. Rammurthy HP", style: "Hindustani & Light Music" }
+    ],
+    institutions: [],
+    style: "Hindustani"
+  },
+  achievements: [
+    "Completed Junior level under the KSEEB board",
+    "Completed Madhyama Prathama under Akhil Bharatiya Gandharva Mahavidyalaya, Mumbai"
+  ],
+  notablePerformances: [
+    "ISKCON Vaikuntha Hill Temple",
+    "Hindu Samajotsav organised by RSS",
+    "TTD SVBC Recording",
+    "Nanjangud Raghavendra Swamy Matha and its branches",
+    "Mysuru Dasara",
+    "Yuvalatha Yuvaka Sanga"
+  ],
+  collaborationPreferences: [
+    "Open to concerts",
+    "Open to music videos"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/jayasimha.tabla",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "mgjayasimha265@gmail.com",
+    phone: "9353721036",
+    publicDetails: ["phone", "instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 
