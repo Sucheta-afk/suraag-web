@@ -233,8 +233,9 @@ export default function PublicArtistPage({ artist }) {
     if (specialisations.length) {
       context.fillStyle = '#b89a7e';
       context.font = '600 18px Arial, sans-serif';
-      context.fillText('Hunaar', rightX, y + 18);
-      y += 30;
+      context.fillText('Genre', rightX, y + 18);
+      context.fillText('हुनर', rightX, y + 42);
+      y += 54;
       chipRows.forEach(row => {
         let x = rightX;
         row.items.forEach(chip => {
@@ -324,12 +325,18 @@ export default function PublicArtistPage({ artist }) {
       notify('This device cannot share image files. Save the card to share it.');
       return;
     }
-    navigator.share(fileShareData).catch(error => {
-      if (error?.name !== 'AbortError') {
+    try {
+      await navigator.share(fileShareData);
+    } catch (error) {
+      if (error?.name === 'AbortError') return;
+      try {
+        await navigator.clipboard.writeText(url);
+        notify('Share unavailable. Link copied');
+      } catch {
         setSharing(true);
-        notify('Could not open the share menu. Use the share options below.');
+        notify('Could not share or copy the link. Use the share options below.');
       }
-    });
+    }
   };
   const reveal = (index) => ({ className: 'rise', style: { '--i': index } });
   const releaseNotes = event => {
@@ -376,13 +383,12 @@ export default function PublicArtistPage({ artist }) {
             {artist.primaryRole && <p {...reveal(1)} className="role">{artist.primaryRole}</p>}
             {artist.location && <p {...reveal(2)} className="loc">{artist.location}</p>}
             {statement && <p {...reveal(3)} className="stmt">{statement}</p>}
-            {!!(skills.length || artist.instruments?.length) && <div {...reveal(4)}><p className="h">Hunaar</p><ul className="chips">{[...skills, ...(artist.instruments || [])].map((item, i) => <li key={`${item}-${i}`}>{item}</li>)}</ul></div>}
-            {featuredTrack && <div {...reveal(5)}><p className="h">Peshkash</p><div className={`player ${isPlaying ? 'playing' : ''}`}>
+            {!!(skills.length || artist.instruments?.length) && <div {...reveal(4)}><p className="h">Genre<small className="hi" lang="hi">हुनर</small></p><ul className="chips">{[...skills, ...(artist.instruments || [])].map((item, i) => <li key={`${item}-${i}`}>{item}</li>)}</ul></div>}
+            {featuredTrack && <div {...reveal(5)}><p className="h"><small className="hi" lang="hi">पेशकश</small></p><div className={`player ${isPlaying ? 'playing' : ''}`}>
               <button className="play" aria-label={isPlaying ? 'Pause featured recording' : 'Play featured recording'} onClick={toggleTrack}><svg viewBox="0 0 24 24"><path d={isPlaying ? 'M6 4h4v16H6zM14 4h4v16h-4z' : 'M7 4v16l13-8z'} /></svg></button>
               <div className="pmeta"><b>{featuredTrack.title}</b><small>{[featuredTrack.genre, featuredTrack.duration].filter(Boolean).join(' · ')}</small><div className="wave" aria-hidden="true">{Array.from({ length: 44 }, (_, i) => <i key={i} style={{ '--d': (i * 53) % 420 }} />)}</div></div>
             </div><audio id="artist-audio" hidden onEnded={() => setIsPlaying(false)} /></div>}
             <div className="share rise" style={{ '--i': 6 }}>
-              <button className="btn solid" onClick={share}>Share card</button>
               <button
                 type="button"
                 className={`btn ${showFullProfile ? 'solid' : ''}`}
@@ -405,18 +411,18 @@ export default function PublicArtistPage({ artist }) {
 
         {showFullProfile && (
           <section className="profile" id="profile" aria-label="Full profile">
-            {!!bio.length && <div className="sec"><h2>Artist's story<small>Safar</small></h2><div>{bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></div>}
+            {!!bio.length && <div className="sec"><h2>Artist's story<small className="hi" lang="hi">परिचय</small></h2><div>{bio.map((paragraph, i) => <p key={i}>{paragraph}</p>)}</div></div>}
             {(training || artist.parampara?.length) && <div className="sec"><h2>Guru Parampara<small className="hi" lang="hi">{'गुरु परंपरा'}</small></h2><div>
               {training?.gurus?.[0] && <><div className="gname">{training.gurus[0].name}</div><p className="gmeta">{[training.gurus[0].style, training.style, training.institutions?.join(', ')].filter(Boolean).join(' · ')}</p></>}
               {training?.yearsOfPractice && <p>Learning and performing for {training.yearsOfPractice} years.</p>}
               {!!training?.gurus?.length && <><p className="h" style={{ marginTop: 22 }}>Lineage</p><ol className="tl">{training.gurus.map((guru, i) => <li key={`${guru.name}-${i}`}><b>{guru.name}</b><span>{guru.style || 'Guru'}</span></li>)}</ol></>}
               {!!artist.parampara?.length && <ol className="tl">{artist.parampara.map(item => <li key={item.n}><b>{item.n}</b><span>{item.r}</span></li>)}</ol>}
             </div></div>}
-            {!!journey.length && <div className="sec"><h2>Musical journey<small>Safar</small></h2><ol className="tl">{journey.map((item, i) => <li key={`${item.title}-${i}`}><b>{[item.year, item.title].filter(Boolean).join(': ')}</b><span>{item.detail || item.description}</span></li>)}</ol></div>}
-            {!!portfolio.length && <div className="sec"><h2>Performances and recordings<small>Peshkash</small></h2><div className="work">{portfolio.map((item, i) => <a href={item.href || '#'} key={`${item.title}-${i}`} onClick={item.href ? undefined : event => event.preventDefault()}><b>{item.title}</b><span>{item.subtitle}</span></a>)}</div></div>}
-            {!!artist.genres?.length && <div className="sec"><h2>Genres</h2><ul className="chips">{artist.genres.map(genre => <li key={genre}>{genre}</li>)}</ul></div>}
-            {!!artist.achievements?.length && <div className="sec"><h2>Achievements</h2><div>{artist.achievements.map(item => <p key={item}>{item}</p>)}</div></div>}
-            {(availability || socialLinks.length > 0) && <div className="sec"><h2>Collaborate</h2><div>{availability && <p>{availability}</p>}<div className="share social-links">{socialLinks.map(link => <a className="btn" href={link.url || link.u} key={link.name || link.n} target="_blank" rel="noreferrer">{link.name || link.n}</a>)}</div></div></div>}
+            {!!journey.length && <div className="sec"><h2>Musical journey<small className="hi" lang="hi">सफ़र</small></h2><ol className="tl">{journey.map((item, i) => <li key={`${item.title}-${i}`}><b>{[item.year, item.title].filter(Boolean).join(': ')}</b><span>{item.detail || item.description}</span></li>)}</ol></div>}
+            {!!portfolio.length && <div className="sec"><h2>Performances and recordings<small className="hi" lang="hi">पेशकश</small></h2><div className="work">{portfolio.map((item, i) => <a href={item.href || '#'} key={`${item.title}-${i}`} onClick={item.href ? undefined : event => event.preventDefault()}><b>{item.title}</b><span>{item.subtitle}</span></a>)}</div></div>}
+            {!!artist.genres?.length && <div className="sec"><h2>Genres<small className="hi" lang="hi">हुनर</small></h2><ul className="chips">{artist.genres.map(genre => <li key={genre}>{genre}</li>)}</ul></div>}
+            {!!artist.achievements?.length && <div className="sec"><h2>Achievements<small className="hi" lang="hi">पुरस्कार</small></h2><div>{artist.achievements.map(item => <p key={item}>{item}</p>)}</div></div>}
+            {(availability || socialLinks.length > 0) && <div className="sec"><h2>Collaborate<small className="hi" lang="hi">संगति</small></h2><div>{availability && <p>{availability}</p>}<div className="share social-links">{socialLinks.map(link => <a className="btn" href={link.url || link.u} key={link.name || link.n} target="_blank" rel="noreferrer">{link.name || link.n}</a>)}</div></div></div>}
           </section>
         )}
       </main>

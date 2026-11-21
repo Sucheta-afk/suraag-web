@@ -120,6 +120,7 @@
 .artist-profile-page .chips li { padding: 5px 13px; border: 1px solid var(--line); border-radius: 99px; font-size: 14px; transition: background .2s,border-color .2s,transform .2s; }
 .artist-profile-page .chips li:hover { transform: translateY(-2px); border-color: var(--terra); background: var(--paper2); }
 .artist-profile-page .h { margin: 0 0 8px; color: var(--soft); font: 600 13px var(--sans); }
+.artist-profile-page .h small.hi { display: block; margin-top: 2px; font: 600 15px "Rajdhani",var(--sans); }
 
 /* Audio Player */
 .artist-profile-page .player { display: flex; align-items: center; gap: 16px; padding: 14px 16px; border: 1px solid var(--line); background: var(--paper2); }
