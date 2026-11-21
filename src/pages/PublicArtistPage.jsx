@@ -25,6 +25,7 @@ export default function PublicArtistPage({ artist }) {
   const tracks = artist.audioTracks || [];
   const skills = artist.specialisations || (artist.skills || []).map(skill => skill.name);
   const training = artist.musicalTraining;
+  const publicEmail = artist.contact?.publicDetails?.includes('email') ? artist.contact.email : null;
   const socialLinks = getSocialLinks(artist.socialLinks);
   const journey = artist.journey || (artist.experiences || []).map(item => ({
     title: item.role || item.title,
@@ -266,7 +267,7 @@ export default function PublicArtistPage({ artist }) {
     context.fillText("Scan to open this artist's Suraag profile", qrX + qrSize + qrGap, qrY + 56, rightWidth - qrSize - qrGap);
     context.fillStyle = '#df7650';
     context.font = '600 21px Arial, sans-serif';
-    context.fillText('suraag.in', qrX + qrSize + qrGap, qrY + 88);
+    context.fillText('Suraag', qrX + qrSize + qrGap, qrY + 88);
     return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
   };
 
@@ -422,7 +423,7 @@ export default function PublicArtistPage({ artist }) {
             {!!portfolio.length && <div className="sec"><h2>Performances and recordings<small className="hi" lang="hi">पेशकश</small></h2><div className="work">{portfolio.map((item, i) => <a href={item.href || '#'} key={`${item.title}-${i}`} onClick={item.href ? undefined : event => event.preventDefault()}><b>{item.title}</b><span>{item.subtitle}</span></a>)}</div></div>}
             {!!artist.genres?.length && <div className="sec"><h2>Genres<small className="hi" lang="hi">हुनर</small></h2><ul className="chips">{artist.genres.map(genre => <li key={genre}>{genre}</li>)}</ul></div>}
             {!!artist.achievements?.length && <div className="sec"><h2>Achievements<small className="hi" lang="hi">पुरस्कार</small></h2><div>{artist.achievements.map(item => <p key={item}>{item}</p>)}</div></div>}
-            {(availability || socialLinks.length > 0) && <div className="sec"><h2>Collaborate<small className="hi" lang="hi">संगति</small></h2><div>{availability && <p>{availability}</p>}<div className="share social-links">{socialLinks.map(link => <a className="btn" href={link.url || link.u} key={link.name || link.n} target="_blank" rel="noreferrer">{link.name || link.n}</a>)}</div></div></div>}
+            {(availability || publicEmail || socialLinks.length > 0) && <div className="sec"><h2>Collaborate<small className="hi" lang="hi">संगति</small></h2><div>{availability && <p>{availability}</p>}<div className="share social-links">{publicEmail && <a className="btn" href={`mailto:${publicEmail}`}>Email {publicEmail}</a>}{socialLinks.map(link => <a className="btn" href={link.url || link.u} key={link.name || link.n} target="_blank" rel="noreferrer">{link.name || link.n}</a>)}</div></div></div>}
           </section>
         )}
       </main>

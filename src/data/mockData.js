@@ -413,44 +413,131 @@ export const INITIAL_MUSICIANS = [
   }
 },
   {
-    id: "user-rohan",
-    name: "Rohan Kulkarni",
-    stageName: "Rohan Kulkarni",
-    isVerified: true,
-    headline: "Tabla Virtuoso & Rhythm Arranger | Farrukhabad & Punjab Gharana | Pune",
-    location: "Pune, Maharashtra",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-    coverImage: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=1200&auto=format&fit=crop&q=80",
-    primaryRole: "Tabla Player",
-    instruments: ["Tabla (Bayah & Dayah)", "Dholak", "Kanjira"],
-    genres: ["Classical Solo", "Jugalbandi", "Fusion", "Ghazal"],
-    openToGigs: true,
-    gigTypes: ["Classical Recitals", "Sufi Baithaks", "Studio Tracking"],
-    rate: "₹25,000 - ₹50,000 / show",
-    connectionsCount: 580,
-    profileViews: 2600,
-    playsCount: 16800,
-    bio: "Farrukhabad & Punjab Gharana trained tabla player with 15+ years of live stage experience. Master of resonant bayah meend modulation and crisp tihais.",
-    audioTracks: [
+  id: "user-siddhikshaa",
+  name: "Siddhikshaa",
+  stageName: "Siddhikshaa",
+  isVerified: false,
+  headline: "Carnatic Violinist | Carnatic Classical & Western Music | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795249807/file_00000000f2c48246b86574380f00549d.png",
+  coverImage: null,
+
+  primaryRole: "Carnatic Violinist",
+
+  instruments: [
+    "Violin"
+  ],
+
+  genres: [
+    "Carnatic Classical",
+    "Western Music"
+  ],
+
+  openToGigs: true,
+  gigTypes: [
+  "Music Collaborations"
+],
+
+collaborationPreferences: [
+  "Open to music collaborations  siddhikshaa12@gmail.com",
+  "Contact: siddhikshaa12@gmail.com"
+],    
+
+  rate: null,
+
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+
+  bio: "Music has been an integral part of my journey for the past eight years, with Carnatic music shaping my foundation and deepening my appreciation for melody and rhythm. Having completed my Junior Grade in Carnatic music, I continue to explore my passion for music, especially my growing interest in Western music. I believe music is a beautiful form of expression that transcends boundaries and brings different cultures together.",
+
+  audioTracks: [],
+
+  videos: [],
+
+  skills: [
+    {
+      name: "Carnatic Classical Music",
+      endorsements: 0
+    },
+    {
+      name: "Carnatic Violin",
+      endorsements: 0
+    },
+    {
+      name: "Western Music Exploration",
+      endorsements: 0
+    },
+    {
+      name: "Vocal Performance",
+      endorsements: 0
+    }
+  ],
+
+  gear: [],
+
+  experiences: [
+    {
+      role: "Lead Singer",
+      organization: "School Music Team",
+      description: "Served as the lead singer of the school music team."
+    }
+  ],
+
+  endorsements: [],
+
+  musicalIdentity: "What makes my music truly mine is the blend of tradition, creativity and emotion that I bring to it. My eight years of learning Carnatic music have given me a strong foundation, while my passion for Western music inspires me to explore new styles and perspectives. My music reflects my individuality, curiosity and love for expressing myself through melodies.",
+
+  musicalTraining: {
+    yearsOfPractice: "8-9",
+    numberOfGurus: 2,
+    gurus: [
       {
-        id: "tr-rohan-1",
-        title: "Punjab Gharana Peshkar & Kaida (Teentaal 16 Beats)",
-        genre: "Classical Solo",
-        duration: "2:50",
-        durationSec: 30,
-        plays: 6890,
-        bpm: 110,
-        key: "C# Dayah",
-        stemsAvailable: true,
-        waveform: [55, 95, 90, 100, 65, 95, 85, 100, 75, 90, 95, 100, 80, 90, 95, 100, 85, 65]
+        name: "Bhargavi Suresh",
+        style: "Carnatic Music"
+      },
+      {
+        name: "Moodnur V. Raghuram",
+        style: "Carnatic Violin"
       }
     ],
-    videos: [],
-    skills: [{ name: "Teentaal Kaida", endorsements: 220 }],
-    gear: ["Custom Shisham Dayah", "Brass Bayah"],
-    experiences: [],
-    endorsements: []
+    institutions: [
+      "PIMFA (Vocal)",
+      "Saptaswara (Violin)"
+    ],
+    style: "Carnatic"
   },
+
+  achievements: [
+    "Junior Grade in Carnatic Classical Music with 97%",
+    "Winner of multiple inter-school competitions",
+    "Lead Singer of the School Music Team"
+  ],
+
+  notablePerformances: [],
+
+  collaborationPreferences: [],
+
+  socialLinks: {
+    instagram: null,
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+
+  contact: {
+    email: "siddhikshaa12@gmail.com",
+    phone: "8431643402",
+    publicDetails: [
+      "email"
+    ]
+  },
+
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
   {
     id: "user-kabir",
     name: "Kabir Mehta",
