@@ -539,44 +539,79 @@ collaborationPreferences: [
   }
 },
   {
-    id: "user-kabir",
-    name: "Kabir Mehta",
-    stageName: "Kabir Sitar",
-    isVerified: true,
-    headline: "Sitarist & Indian Fusion Music Producer | Imdadkhani Gharana Meend & Jhala | New Delhi",
-    location: "New Delhi / Bengaluru",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
-    coverImage: "https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=1200&auto=format&fit=crop&q=80",
-    primaryRole: "Sitarist",
-    instruments: ["Sitar", "Electric Sitar", "Ableton Push"],
-    genres: ["Indian Classical", "Indo-Fusion", "Ambient Sitar"],
-    openToGigs: true,
-    gigTypes: ["Festival Shows", "Electronic Fusion Sets"],
-    rate: "₹35,000 - ₹75,000 / show",
-    connectionsCount: 410,
-    profileViews: 1820,
-    playsCount: 9500,
-    bio: "Imdadkhani Gharana sitarist combining gayaki ang with modern ambient electronic soundscapes.",
-    audioTracks: [
-      {
-        id: "tr-kabir-1",
-        title: "Midnight Raag Darbari Jhala",
-        genre: "Indian Classical",
-        duration: "3:05",
-        durationSec: 32,
-        plays: 4980,
-        bpm: 135,
-        key: "C# Sa",
-        stemsAvailable: true,
-        waveform: [35, 65, 85, 100, 75, 90, 95, 85, 100, 90, 80, 95, 70, 85, 65, 50, 35, 25]
-      }
+  id: "user-anaghaa-kh",
+  name: "Anaghaa K H",
+  stageName: "Anaghaa",
+  isVerified: false,
+  headline: "Hindustani Classical Vocalist | Bollywood & Sandalwood | Devotional Music | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795265481/IMG-20260722-WA0025.jpg",
+  coverImage: null,
+  primaryRole: "Hindustani Classical Vocalist",
+  instruments: [],
+  genres: [
+    "Hindustani Classical",
+    "Bollywood",
+    "Sandalwood",
+    "Soft Music",
+    "Devotional Music"
+  ],
+  openToGigs: true,
+  gigTypes: ["Live Performances", "Gigs", "Devotional Concerts"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A Hindustani classical vocalist with a passion for soulful melodies, devotional music, and the timeless beauty of Indian music. Trained in classical vocals and having completed Praveshik Purna with 85%, she enjoys blending classical expression with contemporary music to create heartfelt musical experiences.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Hindustani Classical Vocal", endorsements: 0 },
+    { name: "Bollywood Music", endorsements: 0 },
+    { name: "Sandalwood Music", endorsements: 0 },
+    { name: "Devotional Music", endorsements: 0 },
+    { name: "Soft Music", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "My music is a little bit of classical, a lot of emotion, and songs that make you fall in love all over again. I love turning melodies into moments and making people feel something through my voice.",
+  musicalTraining: {
+    yearsOfPractice: 13,
+    numberOfGurus: 3,
+    gurus: [
+      { name: "Sri Lakshmi Batny", style: "Carnatic" },
+      { name: "Ananya Bhargav", style: "Hindustani" },
+      { name: "Padma Sridhar", style: "Hindustani" }
     ],
-    videos: [],
-    skills: [{ name: "Gayaki Ang Sitar", endorsements: 175 }],
-    gear: ["Pt. Rikhi Ram Kolkata Sitar"],
-    experiences: [],
-    endorsements: []
+    institutions: [],
+    style: "Hindustani & Carnatic"
+  },
+  achievements: [
+    "Completed Praveshik Purna with 85%",
+    "Recognised by the Prime Minister for singing skills"
+  ],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to devotional concerts"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/anag.kh__",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "anaghaakh5@gmail.com",
+    phone: "8073618380",
+    publicDetails: ["email", "instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
   }
+}
 ];
 
 export const INITIAL_EVENTS = [
