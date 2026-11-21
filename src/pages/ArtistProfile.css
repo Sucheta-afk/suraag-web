@@ -175,6 +175,52 @@
 .artist-profile-page .shh { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .artist-profile-page .shh b { font: 600 20px var(--serif); }
 .artist-profile-page .shh button { padding: 2px 8px; border: 0; background: transparent; font-size: 26px; line-height: 1; }
+
+/* ── Link-preview banner shown inside the share sheet ──────────────────── */
+.artist-profile-page .banner-preview-box {
+  position: relative;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 16px -6px rgba(42,26,18,.22);
+}
+.artist-profile-page .banner-preview-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: 13px;
+}
+.artist-profile-page .banner-preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 14px;
+  background: linear-gradient(to top, rgba(26,13,6,.72) 0%, rgba(26,13,6,.0) 55%);
+  border-radius: 13px;
+}
+.artist-profile-page .banner-preview-pill {
+  font: 600 10px var(--sans);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(26,13,6,.55);
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid rgba(168,131,47,.4);
+}
+.artist-profile-page .banner-preview-name {
+  font: 500 13px var(--sans);
+  color: #f3ead9;
+  line-height: 1.3;
+}
+
 .artist-profile-page .linkrow { display: flex; gap: 8px; }
 .artist-profile-page .linkrow input { flex: 1; min-width: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--ink); font: 14px var(--sans); }
 .artist-profile-page .opts { display: grid; grid-template-columns: repeat(auto-fit,minmax(92px,1fr)); gap: 10px; margin-top: 14px; }
