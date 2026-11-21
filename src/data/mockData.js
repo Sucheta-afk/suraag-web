@@ -7,7 +7,7 @@ export const INITIAL_MUSICIANS = [
     isVerified: false,
     headline: "Carnatic Vocalist | Light Music & Indian Film Music | Bengaluru",
     location: "Bengaluru, Karnataka",
-    avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795187321/v-sreenidhe.jpg",
+    avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795242152/Untitled_Design.jpg",
     coverImage: null,
 
     primaryRole: "Carnatic Vocalist",
@@ -100,7 +100,7 @@ export const INITIAL_MUSICIANS = [
         },
         {
           name: "Narahari Dixit",
-          style: "Carnatic"
+          style: "Light Music"
         }
       ],
       institutions: [
