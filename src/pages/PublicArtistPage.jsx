@@ -42,7 +42,34 @@ export default function PublicArtistPage({ artist }) {
     opacity: `${(0.16 + Math.random() * 0.22).toFixed(2)}`, color: ['var(--gold)', 'var(--terra)', 'var(--caramel)'][index % 3]
   })), []);
 
-  useEffect(() => { document.title = `${name} | ${artist.primaryRole} — Suraag`; }, [name, artist.primaryRole]);
+  useEffect(() => {
+    document.title = `${name} | ${artist.primaryRole} — Suraag`;
+
+    const bannerAbsoluteUrl = `${window.location.origin}/suraag-banner.jpg`;
+    const setMeta = (attr, key, val) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', val);
+    };
+
+    setMeta('property', 'og:title', `${name} — ${artist.primaryRole} on Suraag`);
+    setMeta('property', 'og:description', statement || `Discover ${name}'s classical recordings, lineage, and artistry on Suraag.`);
+    setMeta('property', 'og:image', bannerAbsoluteUrl);
+    setMeta('property', 'og:image:secure_url', bannerAbsoluteUrl);
+    setMeta('property', 'og:image:type', 'image/jpeg');
+    setMeta('property', 'og:image:width', '1024');
+    setMeta('property', 'og:image:height', '682');
+    setMeta('property', 'og:image:alt', `${name} on Suraag`);
+    setMeta('property', 'og:url', url);
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', `${name} — ${artist.primaryRole} on Suraag`);
+    setMeta('name', 'twitter:description', statement || `Discover ${name}'s artistry on Suraag.`);
+    setMeta('name', 'twitter:image', bannerAbsoluteUrl);
+  }, [name, artist.primaryRole, statement, url]);
 
   useEffect(() => {
     const qr = document.getElementById('qr');
@@ -56,10 +83,35 @@ export default function PublicArtistPage({ artist }) {
     try { await navigator.clipboard.writeText(url); notify('Link copied'); }
     catch { notify('Copy the address from your browser bar'); }
   };
+  const downloadBanner = () => {
+    const link = document.createElement('a');
+    link.href = '/suraag-banner.jpg';
+    link.download = `${slug}-suraag-banner.jpg`;
+    link.click();
+    notify('Banner image downloaded');
+  };
   const share = async () => {
     if (navigator.share) {
-      try { await navigator.share({ title: `${name} | ${artist.primaryRole} — Suraag`, text: statement, url }); }
-      catch { /* The visitor closed the share sheet. */ }
+      try {
+        const shareData = {
+          title: `${name} | ${artist.primaryRole} — Suraag`,
+          text: statement ? `${name} (${artist.primaryRole}) on Suraag: "${statement}"` : `${name} on Suraag`,
+          url
+        };
+        try {
+          const res = await fetch('/suraag-banner.jpg');
+          const blob = await res.blob();
+          const file = new File([blob], 'suraag-banner.jpg', { type: 'image/jpeg' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            shareData.files = [file];
+          }
+        } catch {
+          /* Fall back to sharing URL and text */
+        }
+        await navigator.share(shareData);
+      } catch {
+        /* The visitor closed the share sheet. */
+      }
     } else setSharing(true);
   };
   const downloadCard = () => {
@@ -202,8 +254,23 @@ export default function PublicArtistPage({ artist }) {
     <div className={`scrim ${sharing ? 'visible' : ''}`} onClick={() => setSharing(false)} />
     <div className={`sheet ${sharing ? 'visible' : ''}`} role="dialog" aria-modal="true" aria-label="Share this artist card" aria-hidden={!sharing}>
       <div className="shh"><b>Share this card</b><button onClick={() => setSharing(false)} aria-label="Close">×</button></div>
+      
+      {/* Share Link Preview Banner */}
+      <div className="banner-preview-box">
+        <img src="/suraag-banner.jpg" alt="Suraag Link Preview Banner" className="banner-preview-img" />
+        <div className="banner-preview-overlay">
+          <span className="banner-preview-pill">Link preview banner</span>
+          <span className="banner-preview-name">{name} • {artist.primaryRole}</span>
+        </div>
+      </div>
+
       <div className="linkrow"><input readOnly aria-label="Card link" value={url} onFocus={event => event.target.select()} /><button className="btn solid" onClick={copyLink}>Copy</button></div>
-      <div className="opts"><a className="opt" href={`https://wa.me/?text=${encodeURIComponent(`${name}, ${artist.primaryRole} on Suraag: ${url}`)}`} target="_blank" rel="noreferrer"><span>↗</span>WhatsApp</a><button className="opt" onClick={downloadCard}><span>↓</span>Save image</button>{navigator.share && <button className="opt" onClick={share}><span>→</span>More apps</button>}</div>
+      <div className="opts">
+        <a className="opt" href={`https://wa.me/?text=${encodeURIComponent(`${name}, ${artist.primaryRole} on Suraag: ${url}`)}`} target="_blank" rel="noreferrer"><span>↗</span>WhatsApp</a>
+        <button className="opt" onClick={downloadCard}><span>↓</span>Save card</button>
+        <button className="opt" onClick={downloadBanner}><span>🖼</span>Save banner</button>
+        {navigator.share && <button className="opt" onClick={share}><span>→</span>More apps</button>}
+      </div>
     </div>
     <div className={`toast ${toast ? 'on' : ''}`} role="status">{toast}</div>
     {tapNotes.map(note => <span key={note.id} className="tapnote" aria-hidden="true" style={{ left: note.x, top: note.y, '--s': note.size, '--c': note.color, '--dx': note.dx, '--dy': note.dy, '--r': note.rotate, '--dl': note.delay }} onAnimationEnd={() => setTapNotes(current => current.filter(item => item.id !== note.id))}>{note.glyph}</span>)}

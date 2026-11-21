@@ -2,6 +2,7 @@ export const INITIAL_MUSICIANS = [
   {
     id: "user-sreenidhe",
     name: "V Sreenidhe",
+    slug: "v-sreenidhe",
     stageName: "V Sreenidhe",
     isVerified: false,
     headline: "Carnatic Vocalist | Light Music & Indian Film Music | Bengaluru",
