@@ -285,46 +285,125 @@ export const INITIAL_MUSICIANS = [
   }
 },
   {
-    id: "user-aavya",
-    name: "Aavya Sharma",
-    stageName: "Aavya Sharma",
-    isVerified: true,
-    headline: "Hindustani Classical & Bollywood Playback Vocalist | Kirana Gharana | Raag Yaman, Thumri, Sufi | Mumbai",
-    location: "Mumbai, Maharashtra",
-    coverImage: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200&auto=format&fit=crop&q=80",
-    primaryRole: "Classical & Playback Vocalist",
-    instruments: ["Lead Vocals", "Harmonium", "Tanpura", "Swaralipi"],
-    genres: ["Hindustani Classical", "Sufi", "Bollywood Playback", "Semi-Classical", "Ghazal"],
-    openToGigs: true,
-    gigTypes: ["Classical Baithaks", "Bollywood Playback", "Wedding Sangeet", "Fusion Tours"],
-    rate: "₹40,000 - ₹85,000 / concert",
-    connectionsCount: 428,
-    profileViews: 2150,
-    playsCount: 12400,
-    bio: "Mumbai-based vocalist with 14 years of rigorous riyaz under Kirana Gharana gurus. Known for pristine sur, effortless meend slides, intricate taankari, and expressive thumri bhav.",
-    audioTracks: [
+  id: "user-dyuthi",
+  name: "Dyuthi",
+  stageName: "Dyuthi",
+  isVerified: false,
+  headline: "Carnatic Violinist | Carnatic Classical Music | Exploring New Genres",
+  location: "Kolkata, West Bengal",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795244430/dyuthi.jpg",
+  coverImage: null,
+
+  primaryRole: "Carnatic Violinist",
+
+  instruments: [
+    "Violin"
+  ],
+
+  genres: [
+    "Carnatic Classical",
+    "Open to Exploring Other Genres"
+  ],
+
+  openToGigs: true,
+  gigTypes: [
+    "Live Performances",
+    "Music Collaborations",
+    "Concerts",
+    "Gigs"
+  ],
+
+  rate: null,
+
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+
+  bio: "A passionate Carnatic musician with over 15 years of musical learning and experience, specialising in Carnatic violin. After a brief pause from regular practice, she's slowly venturing into the many other genres of music, one step at a time. Finds immense peace in music and has a natural ability to reproduce melodies by ear, often picking them up just by listening.",
+
+  audioTracks: [],
+
+  videos: [],
+
+  skills: [
+    {
+      name: "Carnatic Violin",
+      endorsements: 0
+    },
+    {
+      name: "Melody Reproduction by Ear",
+      endorsements: 0
+    },
+    {
+      name: "Carnatic Classical Music",
+      endorsements: 0
+    },
+    {
+      name: "Musical Listening & Interpretation",
+      endorsements: 0
+    }
+  ],
+
+  gear: [],
+
+  experiences: [],
+
+  endorsements: [],
+
+  musicalIdentity: "Still discovering what makes her music uniquely hers. Enjoys experimenting with different styles, exploring new sounds, and finding her own musical voice along the way. Above all, music is where she finds her peace.",
+
+  musicalTraining: {
+    yearsOfPractice: 15,
+    numberOfGurus: 3,
+    gurus: [
       {
-        id: "tr-aavya-1",
-        title: "Bhor Bhayi (Raag Lalit Bandish in Teentaal)",
-        genre: "Hindustani Classical",
-        duration: "3:45",
-        durationSec: 35,
-        plays: 5210,
-        bpm: 108,
-        key: "C# Sa",
-        stemsAvailable: true,
-        waveform: [25, 45, 65, 85, 50, 95, 80, 45, 90, 100, 75, 35, 70, 85, 55, 95, 50, 35]
+        name: "Raghavendra Sir",
+        style: "Carnatic Vocals"
+      },
+      {
+        name: "K. ShrutiRanjini Madam",
+        style: "Carnatic Violin – L. Subramaniam Style"
+      },
+      {
+        name: "M. Murali Sir",
+        style: "Carnatic Violin – MSG Style"
       }
     ],
-    videos: [],
-    skills: [
-      { name: "Khayal & Bandish", endorsements: 164 },
-      { name: "Bollywood Vocal Pitching", endorsements: 148 }
-    ],
-    gear: ["Bina Scale-Change Harmonium", "Neumann U87 Ai"],
-    experiences: [],
-    endorsements: []
+    institutions: [],
+    style: "Carnatic"
   },
+
+  achievements: [],
+
+  notablePerformances: [],
+
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to music collaborations",
+    "Open to live performances",
+    "Interested in exploring new musical genres"
+  ],
+
+  socialLinks: {
+    instagram: "https://www.instagram.com/itsme_dudii",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+
+  contact: {
+    email: "dyuthiii186@gmail.com",
+    phone: "9482390421",
+    publicDetails: [
+      "instagram"
+    ]
+  },
+
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
   {
     id: "user-rohan",
     name: "Rohan Kulkarni",
