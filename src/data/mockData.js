@@ -917,6 +917,108 @@ collaborationPreferences: [
     canCreatePortfolio: true,
     publicAfterApproval: true
   }
+},
+{
+  id: "user-sanmati-u-shinganmakki",
+  name: "Sanmati U Shinganmakki",
+  stageName: "Sanmati",
+  isVerified: false,
+  headline: "Carnatic Classical Vocalist | Light & Semi-Classical Music | Bollywood & Kannada | Hubballi",
+  location: "Hubballi, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795332092/icc_2025_2.jpg  ",
+  coverImage: null,
+  primaryRole: "Carnatic Classical Vocalist",
+  instruments: ["Vocals", "Acoustic Guitar (Basic)"],
+  genres: [
+    "Carnatic Classical",
+    "Light Music",
+    "Semi-Classical",
+    "Bollywood",
+    "Kannada Music"
+  ],
+  openToGigs: true,
+  gigTypes: [
+    "Gigs",
+    "Live Performances",
+    "Concerts",
+    "Music Collaborations"
+  ],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A vocalist with 17 years of singing experience and foundational training in Carnatic classical music. Her musical repertoire spans light, semi-classical and contemporary melodies, with a focus on expressive phrasing, emotional connection and bringing every melody to life. She has performed alongside accomplished musicians on Radio Mirchi Kannada's Sakkat Kacheri Season 2.",
+  audioTracks: [],
+  videos: [
+    {
+      title: "Performance Reel 1",
+      platform: "Instagram",
+      url: "https://www.instagram.com/reel/DeR8pljy__4/"
+    },
+    {
+      title: "Performance Reel 2",
+      platform: "Instagram",
+      url: "https://www.instagram.com/reel/DbiUKLZyBHH/"
+    }
+  ],
+  skills: [
+    { name: "Carnatic Classical Vocal", endorsements: 0 },
+    { name: "Light Music", endorsements: 0 },
+    { name: "Semi-Classical Vocal", endorsements: 0 },
+    { name: "Bollywood Music", endorsements: 0 },
+    { name: "Kannada Music", endorsements: 0 },
+    { name: "Acoustic Guitar (Basic)", endorsements: 0 },
+    { name: "Expressive Vocal Performance", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Vocalist",
+      organization: "Radio Mirchi Kannada – Sakkat Kacheri Season 2",
+      description: "Selected for the Season 2 Grand Finale and performed alongside accomplished, seasoned musicians."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "My musical approach is rooted in traditional Carnatic vocal discipline while staying open to cross-genre exploration. Whether singing classical ragas or modern melodies, I aim for a balance of technical precision, melodic clarity, heartfelt stage energy and a genuine connection with the audience.",
+  musicalTraining: {
+    yearsOfPractice: 17,
+    numberOfGurus: 2,
+    gurus: [
+      { name: "Vid. Varada Kulkarni", style: "Carnatic" },
+      { name: "Vid. Hemalatha Sampath", style: "Carnatic" }
+    ],
+    institutions: [],
+    style: "Carnatic"
+  },
+  achievements: [
+    "Completed Junior Grade Examination in Carnatic Music",
+    "Won prizes at state and national-level music competitions",
+    "Selected for the Radio Mirchi Kannada Sakkat Kacheri Season 2 Grand Finale"
+  ],
+  notablePerformances: [
+    "Radio Mirchi Kannada – Sakkat Kacheri Season 2, performing alongside accomplished musicians"
+  ],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to live performances",
+    "Open to concerts",
+    "Open to music collaborations"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/sanmati_music/",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "sanmatishinganmakki@gmail.com",
+    phone: "8618134257",
+    publicDetails: ["instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 
