@@ -16,6 +16,21 @@ function getSocialLinks(links = {}) {
     .map(([name, url]) => ({ name: name[0].toUpperCase() + name.slice(1), url }));
 }
 
+function getUniqueItems(items = []) {
+  const seen = new Set();
+
+  return items.filter(item => {
+    const value = typeof item === 'string' ? item.trim() : item?.name?.trim();
+    if (!value) return false;
+
+    const key = value.toLocaleLowerCase();
+    if (seen.has(key)) return false;
+
+    seen.add(key);
+    return true;
+  }).map(item => typeof item === 'string' ? item.trim() : item.name.trim());
+}
+
 export default function PublicArtistPage({ artist }) {
   const [sharing, setSharing] = useState(false);
   const [toast, setToast] = useState('');
@@ -29,6 +44,8 @@ export default function PublicArtistPage({ artist }) {
   const url = `${window.location.origin}/${slug}`;
   const tracks = artist.audioTracks || [];
   const skills = artist.specialisations || (artist.skills || []).map(skill => skill.name);
+  const profileGenreItems = getUniqueItems([...(artist.instruments || []), ...skills]);
+  const uniqueGenres = getUniqueItems(artist.genres || []);
   const training = artist.musicalTraining;
   const publicEmail = artist.contact?.publicDetails?.includes('email') ? artist.contact.email : null;
   const publicWhatsApp = artist.contact?.publicDetails?.includes('whatsapp')
@@ -392,7 +409,7 @@ export default function PublicArtistPage({ artist }) {
             {artist.primaryRole && <p {...reveal(1)} className="role">{artist.primaryRole}</p>}
             {artist.location && <p {...reveal(2)} className="loc">{artist.location}</p>}
             {statement && <p {...reveal(3)} className="stmt">{statement}</p>}
-            {!!(skills.length || artist.instruments?.length) && <div {...reveal(4)}><p className="h">Genre<small className="hi" lang="hi">हुनर</small></p><ul className="chips">{[...skills, ...(artist.instruments || [])].map((item, i) => <li key={`${item}-${i}`}>{item}</li>)}</ul></div>}
+            {!!profileGenreItems.length && <div {...reveal(4)}><p className="h">Genre<small className="hi" lang="hi">हुनर</small></p><ul className="chips">{profileGenreItems.map((item, i) => <li key={`${item}-${i}`}>{item}</li>)}</ul></div>}
             {featuredTrack && <div {...reveal(5)}><p className="h"><small className="hi" lang="hi">पेशकश</small></p><div className={`player ${isPlaying ? 'playing' : ''}`}>
               <button className="play" aria-label={isPlaying ? 'Pause featured recording' : 'Play featured recording'} onClick={toggleTrack}><svg viewBox="0 0 24 24"><path d={isPlaying ? 'M6 4h4v16H6zM14 4h4v16h-4z' : 'M7 4v16l13-8z'} /></svg></button>
               <div className="pmeta"><b>{featuredTrack.title}</b><small>{[featuredTrack.genre, featuredTrack.duration].filter(Boolean).join(' · ')}</small><div className="wave" aria-hidden="true">{Array.from({ length: 44 }, (_, i) => <i key={i} style={{ '--d': (i * 53) % 420 }} />)}</div></div>
@@ -429,7 +446,7 @@ export default function PublicArtistPage({ artist }) {
             </div></div>}
             {!!journey.length && <div className="sec"><h2>Musical journey<small className="hi" lang="hi">सफ़र</small></h2><ol className="tl">{journey.map((item, i) => <li key={`${item.title}-${i}`}><b>{[item.year, item.title].filter(Boolean).join(': ')}</b><span>{item.detail || item.description}</span></li>)}</ol></div>}
             {!!portfolio.length && <div className="sec"><h2>Performances and recordings<small className="hi" lang="hi">पेशकश</small></h2><div className="work">{portfolio.map((item, i) => <a href={item.href || '#'} key={`${item.title}-${i}`} onClick={item.href ? undefined : event => event.preventDefault()}><b>{item.title}</b><span>{item.subtitle}</span></a>)}</div></div>}
-            {!!artist.genres?.length && <div className="sec"><h2>Genres<small className="hi" lang="hi">हुनर</small></h2><ul className="chips">{artist.genres.map(genre => <li key={genre}>{genre}</li>)}</ul></div>}
+            {!!uniqueGenres.length && <div className="sec"><h2>Genres<small className="hi" lang="hi">हुनर</small></h2><ul className="chips">{uniqueGenres.map(genre => <li key={genre}>{genre}</li>)}</ul></div>}
             {!!artist.achievements?.length && <div className="sec"><h2>Achievements<small className="hi" lang="hi">पुरस्कार</small></h2><div>{artist.achievements.map(item => <p key={item}>{item}</p>)}</div></div>}
             {(availability || publicEmail || publicWhatsApp || socialLinks.length > 0) && <div className="sec"><h2>Collaborate<small className="hi" lang="hi">संगति</small></h2><div className="flex flex-col justify-center">{availability && <p>{availability}</p>}<div className="share social-links">{publicEmail && <a className="btn" href={`mailto:${publicEmail}`}>Email {publicEmail}</a>}{publicWhatsApp && <a className="btn" href={`https://wa.me/${publicWhatsApp}`} target="_blank" rel="noopener noreferrer">WhatsApp DM</a>}{socialLinks.map(link => <a className="btn" href={link.url || link.u} key={link.name || link.n} target="_blank" rel="noreferrer">{link.name || link.n}</a>)}</div></div></div>}
           </section>

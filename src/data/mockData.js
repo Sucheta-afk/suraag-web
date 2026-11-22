@@ -170,6 +170,7 @@ export const INITIAL_MUSICIANS = [
 
   instruments: [
     "Guitar",
+    "Vocals",
     "Veena"
   ],
 
@@ -809,10 +810,11 @@ collaborationPreferences: [
   audioTracks: [],
   videos: [],
   skills: [
-    { name: "Tabla", endorsements: 0 },
-    { name: "Drums", endorsements: 0 },
-    { name: "Keyboard", endorsements: 0 },
+    
+    
     { name: "Vocals", endorsements: 0 },
+    { name: "Music Composing", endorsements: 0 },
+    { name: "Tabla", endorsements: 0 },
     { name: "Percussion", endorsements: 0 },
     { name: "Self-Led Musical Exploration", endorsements: 0 }
   ],
@@ -1014,6 +1016,158 @@ collaborationPreferences: [
     email: "sanmatishinganmakki@gmail.com",
     phone: "8618134257",
     publicDetails: ["instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-deeksha-sudheer",
+  name: "Deeksha Sudheer",
+  stageName: "Deeksha Sudheer",
+  isVerified: false,
+  headline: "Carnatic & Western Vocalist | Guitar & Keyboard | Fusion Music | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795371220/inbound8648768567183582074.jpg",
+  coverImage: null,
+  primaryRole: "Vocalist & Multi-Instrumentalist",
+  instruments: ["Guitar", "Keyboard", "Vocals"],
+  genres: [
+    "Carnatic Classical",
+    "Western Music",
+    "Fusion"
+  ],
+  openToGigs: true,
+  gigTypes: [
+    "Live Performances",
+    "Music Collaborations",
+    "Music Teaching"
+  ],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A musician with seven years of practice and a deep love for both Carnatic and Western music. Enjoys exploring different melodies and musical styles, finding joy in music as a form of creative expression. With interests spanning vocals, guitar and keyboard, she brings together diverse musical influences.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Carnatic Classical Vocals", endorsements: 0 },
+    { name: "Western Music", endorsements: 0 },
+    { name: "Guitar", endorsements: 0 },
+    { name: "Keyboard", endorsements: 0 },
+    { name: "Fusion Music", endorsements: 0 },
+    { name: "Musical Exploration & Expression", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "The blend of tradition and exploration defines my musical journey. I love the depth of Carnatic music and the versatility of Western music, bringing together different influences to express myself through music.",
+  musicalTraining: {
+    yearsOfPractice: 7,
+    numberOfGurus: 0,
+    gurus: [],
+    institutions: [],
+    style: "Carnatic Classical & Western Music"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to music collaborations",
+    "Open to teaching"
+  ],
+  socialLinks: {
+    instagram: null,
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "deeksha.sudheer26@gmail.com",
+    phone: "9731213334",
+    publicDetails: []
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-ayan-baul",
+  name: "Ayan Baul",
+  stageName: "Ayan Baul",
+  isVerified: false,
+  headline: "Vocalist | Hindi Pop, Rock & Semi-Classical | Bengaluru & Bhopal",
+  location: "Bengaluru & Bhopal",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795371223/inbound4045787824876301265.jpg",
+  coverImage: null,
+  primaryRole: "Vocalist",
+  instruments: ["Vocals"],
+  genres: [
+    "Hindi Pop",
+    "Rock",
+    "Semi-Classical"
+  ],
+  openToGigs: true,
+  gigTypes: [
+    "Live Performances",
+    "Gigs",
+    "Music Shows",
+    "Music Collaborations"
+  ],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "An untrained vocalist who has been singing since the age of five, with 14 years of musical experience. Growing up in a music-loving family, Ayan found inspiration in the Bollywood songs of the 2000s and 2010s, particularly the expressive singing style of Arijit Singh. He enjoys reinterpreting familiar songs in his own way while preserving their original emotion, and is eager to share his music with a wider audience.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Vocals", endorsements: 0 },
+    { name: "Hindi Pop", endorsements: 0 },
+    { name: "Rock", endorsements: 0 },
+    { name: "Semi-Classical Music", endorsements: 0 },
+    { name: "Song Interpretation", endorsements: 0 },
+    { name: "Vocal Expression", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Vocalist & Performer",
+      organization: "School and College Events",
+      description: "Performed at several school and college events, including Chords '25 at PES University."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "I always try to sing songs in a different way without losing the same feeling or doing injustice to the music. I'm an untrained singer who has been connected to music since childhood, inspired by my family's musical background and the songs I grew up listening to. I want to showcase my music and share it with everyone.",
+  musicalTraining: {
+    yearsOfPractice: 14,
+    numberOfGurus: 0,
+    gurus: [],
+    institutions: [],
+    style: "Self-taught / Untrained"
+  },
+  achievements: [],
+  notablePerformances: [
+    "Chords '25 at PES University",
+    "Various school and college events"
+  ],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to live shows",
+    "Open to music collaborations"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/ionbaul.music",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "ayanbaul30@gmail.com",
+    phone: "7067878679",
+    publicDetails: ["email", "instagram"]
   },
   portfolioConsent: {
     canCreatePortfolio: true,
