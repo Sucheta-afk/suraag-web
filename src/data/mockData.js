@@ -7,7 +7,7 @@ export const INITIAL_MUSICIANS = [
     isVerified: false,
     headline: "Carnatic Vocalist | Light Music & Indian Film Music | Bengaluru",
     location: "Bengaluru, Karnataka",
-    avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795242152/Untitled_Design.jpg",
+    avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532869/sreenidhe.jpg",
     coverImage: null,
 
     primaryRole: "Carnatic Vocalist",
@@ -1168,6 +1168,396 @@ collaborationPreferences: [
     email: "ayanbaul30@gmail.com",
     phone: "7067878679",
     publicDetails: ["email", "instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-sai-abhiram-m",
+  name: "Sai Abhiram M",
+  stageName: "Sai Abhiram",
+  isVerified: false,
+  headline: "Carnatic Saxophonist | Raga Exploration & Fusion | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795418864/IMG_0565.jpg",
+  coverImage: null,
+  primaryRole: "Carnatic Saxophonist",
+  instruments: ["Saxophone"],
+  genres: ["Carnatic Classical", "Fusion"],
+  openToGigs: true,
+  gigTypes: ["Classical Performances"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A Carnatic musician who explores the rich traditions of Indian classical music through the saxophone, an instrument famously associated with jazz. Drawn to the bliss of raga explorations through alapana and kalpana swaras, along with the rich literature of kritis, he continues to deepen his musical understanding and practice.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Carnatic Saxophone", endorsements: 0 },
+    { name: "Raga Exploration", endorsements: 0 },
+    { name: "Alapana", endorsements: 0 },
+    { name: "Kalpana Swaras", endorsements: 0 },
+    { name: "Kriti Performance", endorsements: 0 },
+    { name: "Musical Improvisation (Manodharma)", endorsements: 0 },
+    { name: "Fusion", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "I believe in preserving the sahitya bhava and try to play my instrument in a way that reflects vocal traditions. At the same time, I see immense possibilities in exploring the dynamics and capabilities of the saxophone through manodharma. This balance between tradition and instrumental expression shapes my approach to music.",
+  musicalTraining: {
+    yearsOfPractice: 7,
+    numberOfGurus: 2,
+    gurus: [
+      { name: "Vid. Sridhar Sagar", style: "Carnatic" },
+      { name: "Vid. H K Venkatram", style: "Carnatic" }
+    ],
+    institutions: ["Vijaya College of Music"],
+    style: "Carnatic"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to classical performances"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/m.sai_abhiram",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "abhi2005ram@gmail.com",
+    phone: "8073314012",
+    publicDetails: []
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
+    publicAfterApproval: false
+  }
+},
+{
+  id: "user-sharan",
+  name: "Sharan",
+  stageName: "Sharan",
+  isVerified: false,
+  headline: "Hindustani Vocalist | Indie Rock | Harmonium | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532621/Untitled_Design.png",
+  coverImage: null,
+  primaryRole: "Vocalist & Harmonium Player",
+  instruments: ["Vocals", "Harmonium"],
+  genres: ["Hindustani Classical", "Indie Rock", "Bollywood"],
+  openToGigs: true,
+  gigTypes: ["Live Performances", "Gigs", "Music Collaborations"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A lifelong singer whose musical journey began with Hindustani classical training. Over 12–13 years of practice and learning from different teachers, Sharan has explored various musical styles while gradually discovering a personal sound that brings together classical foundations and contemporary influences.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Hindustani Classical Vocals", endorsements: 0 },
+    { name: "Indie Rock", endorsements: 0 },
+    { name: "Bollywood Music", endorsements: 0 },
+    { name: "Harmonium", endorsements: 0 },
+    { name: "Genre Exploration", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Vocalist & Performer",
+      organization: "School and College Events",
+      description: "Performed at various school and college events, including Aarohi and AT Cul'nite."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "Over the years, learning under different music teachers has introduced me to many styles. I've continued exploring these influences independently, experimenting with different sounds and gradually finding my own musical expression.",
+  musicalTraining: {
+    yearsOfPractice: "12–13",
+    numberOfGurus: 4,
+    gurus: [
+      { name: "Kishan", style: "Hindustani Classical" },
+      { name: "Ustad Ansarul Haw", style: "Hindustani" },
+      { name: "Dhwani Gandhi", style: "Hindustani" },
+      { name: "Varna Dharmagiri", style: "Hindustani & Bollywood" }
+    ],
+    institutions: [],
+    style: "Hindustani Classical"
+  },
+  achievements: [],
+  notablePerformances: [
+    "Aarohi",
+    "AT Cul'nite",
+    "Various school and college events"
+  ],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to music collaborations"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/sharanissober",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "peaky.offf@gmail.com",
+    phone: "9972540655",
+    publicDetails: ["email", "instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-gurudarshan",
+  name: "GURUDARSHAN",
+  stageName: "Guronyx",
+  isVerified: false,
+  headline: "Vocalist, Pianist & Music Producer | Hindustani Classical | Bollywood, R&B & Soul | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532034/C39BAC62-997C-4470-930C-AACE21835CCE.png",
+  coverImage: null,
+  primaryRole: "Vocalist, Pianist & Music Producer",
+  instruments: ["Piano", "Tabla", "Guitar", "Vocals"],
+  genres: [
+    "Hindustani Classical",
+    "Bollywood",
+    "Sandalwood",
+    "Contemporary",
+    "R&B",
+    "Soul"
+  ],
+  openToGigs: true,
+  gigTypes: ["Band Performances", "Live Gigs", "Music Collaborations"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A multi-instrumentalist and live performer trained in Indian classical vocals, with knowledge of ragas, swaras and music theory. An experienced pianist and vocalist, Gurudarshan has performed with multiple bands and explores genres ranging from Bollywood and contemporary music to R&B and Soul. Also involved in songwriting, original composition, music production and recording, with knowledge of tabla and guitar.",
+  audioTracks: [],
+  videos: [
+    {
+      title: "Featured Performance",
+      platform: "YouTube",
+      url: "https://youtu.be/1gZixMbXHIs?si=WNWJPBNbG9RcE1bG"
+    }
+  ],
+  skills: [
+    { name: "Piano", endorsements: 0 },
+    { name: "Vocals", endorsements: 0 },
+    { name: "Hindustani Classical Music", endorsements: 0 },
+    { name: "Tabla", endorsements: 0 },
+    { name: "Guitar", endorsements: 0 },
+    { name: "Songwriting", endorsements: 0 },
+    { name: "Original Composition", endorsements: 0 },
+    { name: "Music Production", endorsements: 0 },
+    { name: "Recording", endorsements: 0 },
+    { name: "Live Performance", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Musician & Live Performer",
+      organization: "Multiple Bands",
+      description: "Performs with multiple bands as a vocalist and pianist, with involvement in live music and original music creation."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "I'm a self-taught producer with my own style of making music and writing songs. I enjoy bringing multiple instruments together to create original compositions and develop a sound that is distinctly mine.",
+  musicalTraining: {
+    yearsOfPractice: 4,
+    numberOfGurus: 1,
+    gurus: [
+      { name: "Vid. Shivanand Salimath", style: "Hindustani – Kirana Gharana" }
+    ],
+    institutions: ["Khayal"],
+    style: "Hindustani – Kirana Gharana"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to gigs through his band",
+    "Contact: 9380201295"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/guronyx",
+    youtube: "https://www.youtube.com/@guronyx",
+    facebook: null,
+    other: [
+      {
+        platform: "Spotify",
+        url: "https://open.spotify.com/track/6B6pNcFahjxrJyZO51xCbq?si=P_YJG22DSt2R7d9piDkWKw&utm_source=copy-link"
+      }
+    ]
+  },
+  contact: {
+    email: "jmgurudarshan@gmail.com",
+    phone: "9380201295",
+    publicDetails: []
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
+    publicAfterApproval: false
+  }
+},
+{
+  id: "user-vishal-jugali",
+  name: "Vishal Jugali",
+  stageName: "Vishal Jugali",
+  isVerified: false,
+  headline: "Indian Classical & Bollywood Vocalist | Devotional Music | Harmonium & Trumpet | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532032/IMG_6130.jpg",
+  coverImage: null,
+  primaryRole: "Indian Classical Vocalist",
+  instruments: ["Vocals", "Harmonium", "Trumpet"],
+  genres: [
+    "Hindustani Classical",
+    "Bollywood",
+    "Devotional Music"
+  ],
+  openToGigs: true,
+  gigTypes: ["Live Performances", "Gigs"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "Vishal Jugali is an Indian vocalist with 10 years of singing experience, specialising in Hindustani classical, devotional and Bollywood music. He enjoys exploring different musical styles and is confident in learning new songs quickly.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Hindustani Classical Vocals", endorsements: 0 },
+    { name: "Bollywood Singing", endorsements: 0 },
+    { name: "Devotional Music", endorsements: 0 },
+    { name: "Harmonium", endorsements: 0 },
+    { name: "Trumpet", endorsements: 0 },
+    { name: "Song Learning & Adaptability", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Indian Vocalist",
+      organization: "Independent",
+      description: "10 years of singing experience across Indian classical, devotional and Bollywood music."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "I enjoy singing both Indian classical and Bollywood music. I love learning new songs and can pick up melodies quickly, allowing me to explore and adapt to different musical styles.",
+  musicalTraining: {
+    yearsOfPractice: 10,
+    numberOfGurus: 1,
+    gurus: [
+      { name: "Pandit Mallikarjun Vakkund", style: "Hindustani" }
+    ],
+    institutions: [],
+    style: "Hindustani"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to gigs",
+    "Open to live performances"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/vishal____jugali",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "vishal.jugali@gmail.com",
+    phone: "8147844664",
+    publicDetails: ["phone", "instagram", "email"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-sukrutha-s",
+  name: "Sukrutha S",
+  stageName: "Sukrutha",
+  isVerified: false,
+  headline: "Carnatic Veena Artist | Light Music, Bhakti Geete & Bhava Geete | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532023/inbound801615799107467097.webp",
+  coverImage: null,
+  primaryRole: "Carnatic Veena Artist",
+  instruments: ["Veena"],
+  genres: [
+    "Carnatic Classical",
+    "Light Music",
+    "Bhakti Geete",
+    "Bhava Geete"
+  ],
+  openToGigs: true,
+  gigTypes: ["Music Video Collaborations"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "A Veena artist with 10 years of musical practice, deeply rooted in Indian classical and devotional traditions. Specialising in Carnatic music on the Saraswati Veena, Sukrutha draws inspiration from the beauty of ragas and the richness of Indian musical heritage. Through her music, she seeks to express devotion, peace and emotion while continuing to explore music composition.",
+  audioTracks: [],
+  videos: [
+    {
+      title: "Featured Performance",
+      platform: "YouTube",
+      url: "https://youtu.be/DYjbpjBm04M?si=7ClxVlnhHr_MjHyJ"
+    },
+    {
+      title: "YouTube Channel",
+      platform: "YouTube",
+      url: "https://youtu.be/mGBkyIn2YNg?si=G6-flQ1t8dJpEdXB"
+    }
+  ],
+  skills: [
+    { name: "Carnatic Veena", endorsements: 0 },
+    { name: "Saraswati Veena", endorsements: 0 },
+    { name: "Carnatic Classical Music", endorsements: 0 },
+    { name: "Light Music", endorsements: 0 },
+    { name: "Bhakti Geete", endorsements: 0 },
+    { name: "Bhava Geete", endorsements: 0 },
+    { name: "Music Composition", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "I tend to make my music reflect my love for tradition, spirituality and the emotions that words sometimes cannot express. Music is not just an art for me but a journey of devotion, discipline and inner peace.",
+  musicalTraining: {
+    yearsOfPractice: 10,
+    numberOfGurus: 3,
+    gurus: [
+      { name: "Radha Narasimhan", style: "Carnatic – Veena" },
+      { name: "Bhamini Nagaraj", style: "Carnatic Vocals" },
+      { name: "Narahari Dixit", style: "Light Music" }
+    ],
+    institutions: ["Srujana Sangeeta Shaale"],
+    style: "Carnatic"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to music video collaborations",
+    "Interested in collaborating through social media platforms"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/sukrutha_srikanth",
+    youtube: "https://youtu.be/mGBkyIn2YNg?si=G6-flQ1t8dJpEdXB",
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "sukruthaofficial@gmail.com",
+    phone: "8618903492",
+    publicDetails: ["instagram", "email", "otherSocialLinks"]
   },
   portfolioConsent: {
     canCreatePortfolio: true,
