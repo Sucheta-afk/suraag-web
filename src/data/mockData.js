@@ -1652,6 +1652,65 @@ collaborationPreferences: [
     canCreatePortfolio: false,
     publicAfterApproval: true
   }
+},
+{
+  id: "user-akshay-g",
+  name: "Dr. Akshay G",
+  stageName: "Mandolin Akshay",
+  isVerified: false,
+  headline: "Carnatic Mandolin Artist | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795542374/WhatsApp_Image_2026-11-24_at_11.15.40_PM.jpg",
+  coverImage: null,
+  primaryRole: "Mandolin Artist",
+  instruments: ["Mandolin"],
+  genres: ["Carnatic Classical"],
+  openToGigs: true,
+  gigTypes: ["Teaching", "Concerts"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "Music cannot be described; it has to be experienced. With 10 years of practice in Carnatic music, Dr. Akshay G brings his own approach to the mandolin, shaped by the process of learning and musical exploration.",
+  audioTracks: [],
+  videos: [],
+  skills: [],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "The process is what makes his Music, his own.",
+  musicalTraining: {
+    yearsOfPractice: 10,
+    numberOfGurus: 1,
+    gurus: [
+      {
+        name: "Mandolin U. Rajesh Sir",
+        style: "Carnatic"
+      }
+    ],
+    institutions: ["Akshohi Swaralaya"],
+    style: "Carnatic"
+  },
+  achievements: [],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to teaching opportunities and concert engagements."
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/mandolinakshay/",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "akshaymandolin@gmail.com",
+    phone: "9902780893",
+    publicDetails: ["phone", "instagram"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 
