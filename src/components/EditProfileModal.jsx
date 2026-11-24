@@ -163,7 +163,7 @@ export default function EditProfileModal() {
           </div>
 
           <div>
-            <label className="text-xs font-bold text-[#7d6148] block mb-1">Detailed Artist Bio & Guru Lineage</label>
+            <label className="text-xs font-bold text-[#7d6148] block mb-1">Detailed Artist Bio & Guru</label>
             <textarea
               rows={3}
               value={bio}

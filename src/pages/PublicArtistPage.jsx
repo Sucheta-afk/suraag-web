@@ -441,7 +441,7 @@ export default function PublicArtistPage({ artist }) {
             {(training || artist.parampara?.length) && <div className="sec"><h2>Guru Parampara<small className="hi" lang="hi">{'गुरु परंपरा'}</small></h2><div>
               {training?.gurus?.[0] && <><div className="gname">{training.gurus[0].name}</div><p className="gmeta">{[training.gurus[0].style, training.style, training.institutions?.join(', ')].filter(Boolean).join(' · ')}</p></>}
               {training?.yearsOfPractice && <p>Learning and performing for {formatPracticeDuration(training.yearsOfPractice)}.</p>}
-              {!!training?.gurus?.length && <><p className="h" style={{ marginTop: 22 }}>Lineage</p><ol className="tl">{training.gurus.map((guru, i) => <li key={`${guru.name}-${i}`}><b>{guru.name}</b><span>{guru.style || 'Guru'}</span></li>)}</ol></>}
+              {!!training?.gurus?.length && <ol className="tl" style={{ marginTop: 22 }}>{training.gurus.map((guru, i) => <li key={`${guru.name}-${i}`}><b>{guru.name}</b><span>{guru.style || 'Guru'}</span></li>)}</ol>}
               {!!artist.parampara?.length && <ol className="tl">{artist.parampara.map(item => <li key={item.n}><b>{item.n}</b><span>{item.r}</span></li>)}</ol>}
             </div></div>}
             {!!journey.length && <div className="sec"><h2>Musical journey<small className="hi" lang="hi">सफ़र</small></h2><ol className="tl">{journey.map((item, i) => <li key={`${item.title}-${i}`}><b>{[item.year, item.title].filter(Boolean).join(': ')}</b><span>{item.detail || item.description}</span></li>)}</ol></div>}

@@ -1491,12 +1491,14 @@ collaborationPreferences: [
   avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795532023/inbound801615799107467097.webp",
   coverImage: null,
   primaryRole: "Carnatic Veena Artist",
-  instruments: ["Veena"],
+  instruments: ["Sarawati Veena"],
   genres: [
-    "Carnatic Classical",
-    "Light Music",
-    "Bhakti Geete",
-    "Bhava Geete"
+    "Sarawati Veena",
+    "Carnatic music",
+    "Light music",
+    "Music Composition",
+    "Bhava geethe",
+    "Bhakthi Geete"
   ],
   openToGigs: true,
   gigTypes: ["Music Video Collaborations"],
@@ -1519,12 +1521,8 @@ collaborationPreferences: [
     }
   ],
   skills: [
-    { name: "Carnatic Veena", endorsements: 0 },
-    { name: "Saraswati Veena", endorsements: 0 },
-    { name: "Carnatic Classical Music", endorsements: 0 },
-    { name: "Light Music", endorsements: 0 },
-    { name: "Bhakti Geete", endorsements: 0 },
-    { name: "Bhava Geete", endorsements: 0 },
+    { name: "Carnatic music", endorsements: 0 },
+    { name: "Light music", endorsements: 0 },
     { name: "Music Composition", endorsements: 0 }
   ],
   gear: [],
@@ -1561,6 +1559,97 @@ collaborationPreferences: [
   },
   portfolioConsent: {
     canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
+},
+{
+  id: "user-basanth-chandrashekhar",
+  name: "Basanth Chandrashekhar",
+  stageName: "Mandolin Basanth",
+  isVerified: false,
+  headline: "Carnatic Electric Mandolin Artist | Carnatic Fusion & Jazz | Bengaluru",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795536227/IMG_1894.jpg",
+  coverImage: null,
+  primaryRole: "Carnatic Electric Mandolin Artist",
+  instruments: ["Carnatic Electric Mandolin"],
+  genres: ["Carnatic Classical", "Carnatic Fusion", "Carnatic Jazz"],
+  openToGigs: true,
+  gigTypes: ["Live Concerts", "Collaborations", "Private Performances"],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "Basanth Chandrashekhar is a Carnatic electric mandolin artist from a family with a rich musical heritage. With 12 years of musical practice, he has developed a distinctive approach to adapting vocal and Nadaswaram traditions to the mandolin. He has performed at prestigious venues and festivals, including Sri Thyagaraja Aradhana in Thiruvaiyaru, Karnataka Ganakala Parishath, Sri Sringeri Mutt, ISKCON and the BRICS Summit, and has shared the stage with several accomplished artists. He holds a BBA from Sheshadripuram College, Bengaluru.",
+  audioTracks: [],
+  videos: [
+    {
+      title: "YouTube Channel",
+      platform: "YouTube",
+      url: "https://youtube.com/@mandolinbasanthchandrashekhar?si=6iLBh1tAqewKBRMr"
+    }
+  ],
+  skills: [
+    { name: "Carnatic Electric Mandolin", endorsements: 0 },
+    { name: "Carnatic Classical Music", endorsements: 0 },
+    { name: "Carnatic Fusion", endorsements: 0 },
+    { name: "Carnatic Jazz", endorsements: 0 },
+    { name: "Vocal Music Adaptation", endorsements: 0 },
+    { name: "Nadaswaram Music Adaptation", endorsements: 0 },
+    { name: "Live Performance", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [
+    {
+      role: "Carnatic Electric Mandolin Artist",
+      organization: "Independent Performer",
+      description: "Performed at Sri Yadugiri Yathiraja Mutt, Karnataka Ganakala Parishath, Sri Thyagaraja Aradhana in Thiruvaiyaru, Karnataka College of Percussion, Sri Yogi Narayana Temple in Kaiwara, Sri Sringeri Mutt, ISKCON, various Thyagaraja Aradhana Sabhas, Sharannavaratri concerts, private concerts and the BRICS Summit."
+    }
+  ],
+  endorsements: [],
+  musicalIdentity: "My musical identity lies in my unique style of adapting vocal and Nadaswaram music to the mandolin, bringing the expressive depth of traditional music into an instrumental form.",
+  musicalTraining: {
+    yearsOfPractice: 12,
+    numberOfGurus: 4,
+    gurus: [
+      { name: "Vid. Mandolin Prassana Kumar Ballal", style: "Carnatic" },
+      { name: "Vid. Mandolin U Rajesh", style: "Carnatic & Carnatic Fusion" },
+      { name: "Vid. R.A. Ramamani", style: "Carnatic" },
+      { name: "Vid. H.K. Venkatram", style: "Carnatic" }
+    ],
+    institutions: [],
+    style: "Carnatic"
+  },
+  achievements: [],
+  notablePerformances: [
+    "BRICS Summit",
+    "Sri Thyagaraja Aradhana, Thiruvaiyaru",
+    "Karnataka Ganakala Parishath",
+    "Karnataka College of Percussion",
+    "Sri Yadugiri Yathiraja Mutt",
+    "Sri Sringeri Mutt",
+    "ISKCON",
+    "Sri Yogi Narayana Temple, Kaiwara",
+    "Various Thyagaraja Aradhana and Sharannavaratri concerts"
+  ],
+  collaborationPreferences: [
+    "Open to gigs and performances",
+    "Open to collaborations",
+    "Contact via phone"
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/mandolinbasanth",
+    youtube: "https://youtube.com/@mandolinbasanthchandrashekhar?si=6iLBh1tAqewKBRMr",
+    facebook: "https://www.facebook.com/search/top?q=Mandolin%20Basanth%20Chandrashekhar",
+    other: []
+  },
+  contact: {
+    email: "mandolinbasanth@gmail.com",
+    phone: "6363467276",
+    publicDetails: ["phone", "instagram", "email"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: false,
     publicAfterApproval: true
   }
 }
