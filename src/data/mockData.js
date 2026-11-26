@@ -1711,6 +1711,89 @@ collaborationPreferences: [
     canCreatePortfolio: true,
     publicAfterApproval: true
   }
+},
+
+
+{
+  id: "user-anagha-nagaraj",
+  name: "Anagha Nagaraj",
+  stageName: "Anagha Nagaraj",
+  isVerified: false,
+  headline: "Vocalist | Carnatic, Bollywood & Kannada Music",
+  location: "Bengaluru, Karnataka",
+  avatar: "https://res.cloudinary.com/is5e91d6/image/upload/v1795666176/IMG_4618.jpg",
+  coverImage: null,
+  primaryRole: "Vocalist",
+  instruments: ["Vocals", "Guitar", "Ukulele (Beginner)"],
+  genres: [
+    "Bollywood",
+    "Kannada",
+    "Carnatic Classical",
+    "Indian Film Music",
+    "Multilingual Covers",
+    "Light Music"
+  ],
+  openToGigs: true,
+  gigTypes: [
+    "Live Performances",
+    "Singing Collaborations",
+    "Musical Projects"
+  ],
+  rate: null,
+  connectionsCount: 0,
+  profileViews: 0,
+  playsCount: 0,
+  bio: "Anagha Nagaraj is a vocalist who has been learning and exploring music since childhood, with a foundation in Carnatic music. She enjoys singing Bollywood, Kannada and songs across languages, while also exploring the guitar and ukulele. Music has always been a source of happiness, comfort and peace for her, and she loves bringing every song to life in her own way.",
+  audioTracks: [],
+  videos: [],
+  skills: [
+    { name: "Vocals", endorsements: 0 },
+    { name: "Carnatic Music", endorsements: 0 },
+    { name: "Light Music", endorsements: 0 },
+    { name: "Multilingual Singing", endorsements: 0 },
+    { name: "Guitar", endorsements: 0 },
+    { name: "Ukulele", endorsements: 0 }
+  ],
+  gear: [],
+  experiences: [],
+  endorsements: [],
+  musicalIdentity: "I grew up listening to music and slowly fell in love with singing. It's always been a part of me, something I turn to for happiness, comfort and peace. Whether it's an old favourite or a song I'm discovering, I simply love bringing music to life in my own way.",
+  musicalTraining: {
+    yearsOfPractice: 12,
+    numberOfGurus: 4,
+    gurus: [
+      { name: "Sridevi", style: "Carnatic" },
+      { name: "Ashwin Sharma", style: "Carnatic and Light Music" },
+      { name: "Ramesh Chandra", style: "Light Music" },
+      { name: "Ramamani", style: "Carnatic" }
+    ],
+    institutions: [],
+    style: "Carnatic and Light Music"
+  },
+  achievements: [
+    "Sang for the Kannada-dubbed version of the movie Shabaash Mithu.",
+    "Collaborated with Tanmay Gururaj and sang for The Missing, a PES production."
+  ],
+  notablePerformances: [],
+  collaborationPreferences: [
+    "Open to gigs, live performances, singing collaborations and musical projects.",
+    "Available for collaboration enquiries through Instagram DM or WhatsApp."
+  ],
+  socialLinks: {
+    instagram: "https://www.instagram.com/anagha.nagaraj",
+    youtube: null,
+    facebook: null,
+    other: []
+  },
+  contact: {
+    email: "anaghanag.bharadwaj@gmail.com",
+    phone: "9886054916",
+    publicDetails: ["instagram", "otherSocialLinks"]
+  },
+  portfolioConsent: {
+    canCreatePortfolio: true,
+    publicAfterApproval: true
+  }
 }
 ];
 
